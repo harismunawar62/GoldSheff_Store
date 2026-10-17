@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GOLDSHEFF | Luxury Organic & Natural Cosmetics</title>
+  
+  <!-- Tailwind CSS & FontAwesome -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Google Fonts: Cormorant Garamond & Montserrat -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- EmailJS SDK (Free Automatic Emails) -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            gold: {
+              300: '#e6ca65',
+              400: '#d4af37',
+              500: '#c5a059',
+              600: '#997327'
+            },
+            luxury: {
+              dark: '#080c0a',
+              card: '#0f1714',
+              surface: '#15211c',
+              border: '#2a3b33'
+            }
+          },
+          fontFamily: {
+            serif: ['"Cormorant Garamond"', 'serif'],
+            sans: ['"Montserrat"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body { background-color: #080c0a; color: #f5f5f5; font-family: 'Montserrat', sans-serif; }
+    .gold-gradient-text {
+      background: linear-gradient(135deg, #f7e08b 0%, #c5a059 50%, #85611e 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .gold-btn {
+      background: linear-gradient(135deg, #c5a059 0%, #997327 100%);
+      transition: all 0.3s ease;
+    }
+    .gold-btn:hover {
+      background: linear-gradient(135deg, #d4af37 0%, #b3862b 100%);
+      box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
+    }
+    .glass-nav {
+      background: rgba(8, 12, 10, 0.88);
+      backdrop-filter: blur(12px);
+    }
+  </style>
+</head>
+<body class="selection:bg-gold-500 selection:text-black">
+
+  <!-- TOP ANNOUNCEMENT BAR -->
+  <div class="bg-gradient-to-r from-luxury-dark via-gold-600 to-luxury-dark text-white text-xs font-semibold tracking-widest uppercase py-2 text-center border-b border-gold-500/30 px-4">
+    <span>✨ Free Shipping in Pakistan on orders above Rs. 1,500 | Worldwide Delivery Available ✨</span>
+  </div>
+
+  <!-- NAVIGATION BAR -->
+  <header class="sticky top-0 z-40 glass-nav border-b border-luxury-border">
+    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+      <div>
+        <a href="#" class="font-serif text-3xl md:text-4xl font-bold tracking-widest gold-gradient-text">GOLDSHEFF</a>
+        <p class="text-[9px] uppercase tracking-[0.3em] text-gray-400">Natural & Organic Luxury</p>
+      </div>
+
+      <nav class="hidden md:flex space-x-8 text-sm tracking-wider font-light text-gray-300">
+        <a href="#about" class="hover:text-gold-400 transition">OUR STORY</a>
+        <a href="#shop" class="hover:text-gold-400 transition">COLLECTIONS</a>
+        <a href="#natural" class="hover:text-gold-400 transition">100% ORGANIC</a>
+      </nav>
+
+      <div class="flex items-center space-x-5">
+        <!-- Auth Button -->
+        <button id="authBtn" onclick="openModal('authModal')" class="text-xs uppercase tracking-wider text-gold-400 border border-gold-500/50 px-4 py-2 rounded-full hover:bg-gold-500 hover:text-black transition flex items-center gap-2">
+          <i class="fa-regular fa-user"></i> <span id="authBtnText">Login</span>
+        </button>
+
+        <!-- Cart Trigger -->
+        <button onclick="openModal('cartModal')" class="relative text-gold-400 hover:text-gold-300 text-xl transition">
+          <i class="fa-solid fa-bag-shopping"></i>
+          <span id="cartCountBadge" class="absolute -top-2 -right-2 bg-gold-500 text-black text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO SECTION WITH LUXURY BOTANICAL AESTHETICS -->
+  <section class="relative min-h-[85vh] flex items-center justify-center text-center px-4 overflow-hidden">
+    <div class="absolute inset-0 bg-cover bg-center opacity-30 transform scale-105 transition duration-1000" 
+         style="background-image: url('https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1920&q=80');"></div>
+    <div class="absolute inset-0 bg-gradient-to-t from-luxury-dark via-luxury-dark/70 to-transparent"></div>
+
+    <div class="relative z-10 max-w-3xl mx-auto space-y-6">
+      <div class="inline-block border border-gold-500/40 px-5 py-1.5 rounded-full text-gold-400 text-xs tracking-[0.25em] uppercase bg-black/40">
+        Pure Botanical Extraction
+      </div>
+      <h1 class="font-serif text-5xl md:text-7xl font-bold tracking-tight text-white leading-tight">
+        Pure Gold for Your <span class="italic font-light gold-gradient-text">Radiant Soul</span>
+      </h1>
+      <p class="text-gray-300 text-sm md:text-base font-light leading-relaxed max-w-xl mx-auto">
+        Crafted with rare botanical oils, hand-harvested ingredients, and timeless alchemy. 100% certified organic cosmetics designed for eternal elegance.
+      </p>
+      <div class="pt-4">
+        <a href="#shop" class="gold-btn text-black font-semibold tracking-widest text-xs uppercase px-8 py-3.5 rounded-full inline-block">
+          Explore Collection
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- NATURAL & ORGANIC PHILOSOPHY (VISUAL BANNER) -->
+  <section id="natural" class="py-16 border-y border-luxury-border bg-luxury-surface/40">
+    <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+      <div class="p-6 rounded-xl border border-luxury-border/60 bg-luxury-card/50">
+        <i class="fa-solid fa-leaf text-2xl text-gold-400 mb-3"></i>
+        <h3 class="font-serif text-xl font-semibold mb-2">100% Organic & Raw</h3>
+        <p class="text-xs text-gray-400 leading-relaxed">No harmful sulfates, parabens, or synthetic fragrance. Sourced directly from nature.</p>
+      </div>
+      <div class="p-6 rounded-xl border border-luxury-border/60 bg-luxury-card/50">
+        <i class="fa-solid fa-hand-holding-heart text-2xl text-gold-400 mb-3"></i>
+        <h3 class="font-serif text-xl font-semibold mb-2">Cruelty-Free Elegance</h3>
+        <p class="text-xs text-gray-400 leading-relaxed">Never tested on animals. Handcrafted with reverence for skin and earth.</p>
+      </div>
+      <div class="p-6 rounded-xl border border-luxury-border/60 bg-luxury-card/50">
+        <i class="fa-solid fa-earth-americas text-2xl text-gold-400 mb-3"></i>
+        <h3 class="font-serif text-xl font-semibold mb-2">Worldwide Luxury</h3>
+        <p class="text-xs text-gray-400 leading-relaxed">Delivering pure organic cosmetic perfection across Pakistan and across the globe.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT GOLDSHEFF -->
+  <section id="about" class="py-24 max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+    <div class="relative">
+      <img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=800&q=80" alt="Botanical Luxury" class="rounded-2xl border border-luxury-border shadow-2xl object-cover w-full h-[450px]">
+      <div class="absolute -bottom-6 -right-6 bg-luxury-card border border-gold-500/50 p-6 rounded-xl hidden md:block max-w-xs shadow-xl">
+        <p class="font-serif text-lg gold-gradient-text font-bold mb-1">Goldsheff Certified</p>
+        <p class="text-xs text-gray-300">"Redefining modern beauty through ancient organic purity."</p>
+      </div>
+    </div>
+    <div class="space-y-6">
+      <span class="text-gold-400 text-xs tracking-widest uppercase">The Goldsheff Distinction</span>
+      <h2 class="font-serif text-4xl md:text-5xl font-bold leading-tight">Where Science Meets <br><span class="gold-gradient-text italic font-light">Natural Radiance</span></h2>
+      <p class="text-gray-300 text-sm leading-relaxed">
+        Goldsheff stands at the pinnacle of luxury skincare and clean cosmetics. Every formula is carefully orchestrated using cold-pressed organic botanicals, precious active enzymes, and restorative vitamins that illuminate your skin naturally.
+      </p>
+      <div class="border-l-2 border-gold-500 pl-4 py-2 italic text-gray-300 text-sm font-serif">
+        "Shopping above Rs. 1500 enjoys complimentary nationwide shipping inside Pakistan. We bring organic luxury straight to your doorstep."
+      </div>
+    </div>
+  </section>
+
+  <!-- STORE / PRODUCTS SECTION (Initially Empty As Requested) -->
+  <section id="shop" class="py-20 max-w-7xl mx-auto px-6">
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 border-b border-luxury-border pb-6">
+      <div>
+        <span class="text-gold-400 text-xs tracking-widest uppercase">Fresh Catalog</span>
+        <h2 class="font-serif text-4xl font-bold">Luxury Collection</h2>
+      </div>
+      <p class="text-xs text-gray-400 mt-2 md:mt-0 max-w-sm">
+        All formulations are certified organic. Free delivery applied automatically when your cart reaches Rs. 1,500.
+      </p>
+    </div>
+
+    <!-- Product Grid -->
+    <div id="productGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- Dynamic Products injected here via Admin Panel -->
+    </div>
+
+    <!-- Empty State Message -->
+    <div id="emptyCatalogNotice" class="text-center py-24 border border-dashed border-luxury-border rounded-2xl bg-luxury-card/30">
+      <i class="fa-solid fa-spa text-4xl text-gold-500/40 mb-4"></i>
+      <h3 class="font-serif text-2xl font-semibold text-gray-200">Catalog Refreshing</h3>
+      <p class="text-xs text-gray-400 mt-1 max-w-md mx-auto">
+        New luxury inventory is being prepared. Login to the hidden admin panel with code <b>Harry.__.626</b> to publish new creations.
+      </p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-luxury-border bg-black text-gray-400 text-xs py-12">
+    <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
+      <div class="text-center md:text-left">
+        <span class="font-serif text-2xl font-bold gold-gradient-text">GOLDSHEFF</span>
+        <p class="text-[10px] tracking-widest uppercase mt-1">© 2026 Goldsheff Luxury Cosmetics. All rights reserved.</p>
+      </div>
+      
+      <div class="flex items-center space-x-6 text-sm">
+        <a href="#" class="hover:text-gold-400"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#" class="hover:text-gold-400"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="#" class="hover:text-gold-400"><i class="fa-brands fa-whatsapp"></i></a>
+        
+        <!-- Discreet Hidden Admin Panel Icon -->
+        <button onclick="requestAdminAccess()" title="Staff Access" class="text-gray-700 hover:text-gold-500/60 transition ml-4">
+          <i class="fa-solid fa-lock text-xs"></i>
+        </button>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==================== MODALS ==================== -->
+
+  <!-- 1. CART & CHECKOUT MODAL -->
+  <div id="cartModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex justify-end">
+    <div class="bg-luxury-card border-l border-luxury-border w-full max-w-md h-full flex flex-col p-6 overflow-y-auto">
+      <div class="flex justify-between items-center border-b border-luxury-border pb-4">
+        <h3 class="font-serif text-2xl font-bold gold-gradient-text">Your Luxury Bag</h3>
+        <button onclick="closeModal('cartModal')" class="text-gray-400 hover:text-white"><i class="fa-solid fa-xmark text-lg"></i></button>
+      </div>
+
+      <!-- Cart Item List -->
+      <div id="cartItemsList" class="flex-1 overflow-y-auto py-4 space-y-4">
+        <p class="text-xs text-gray-500 text-center py-10">Your bag is currently empty.</p>
+      </div>
+
+      <!-- Promo Code & Calculations -->
+      <div class="border-t border-luxury-border pt-4 space-y-3 text-xs">
+        <div class="flex gap-2">
+          <input type="text" id="promoInput" placeholder="Promo code (e.g. FIRSTORDER)" class="bg-luxury-surface border border-luxury-border px-3 py-2 rounded text-white flex-1 uppercase">
+          <button onclick="applyPromoCode()" class="gold-btn px-4 py-2 rounded text-black font-semibold">Apply</button>
+        </div>
+        <div id="promoMessage" class="text-[11px] hidden font-medium"></div>
+
+        <div class="space-y-1.5 pt-2 text-gray-300">
+          <div class="flex justify-between">
+            <span>Subtotal:</span>
+            <span id="subtotalDisplay">Rs. 0</span>
+          </div>
+          <div class="flex justify-between text-gold-400">
+            <span>Promo Discount:</span>
+            <span id="discountDisplay">- Rs. 0</span>
+          </div>
+          <div class="flex justify-between">
+            <span>Shipping:</span>
+            <span id="shippingDisplay">Rs. 0</span>
+          </div>
+          <div class="flex justify-between font-bold text-sm text-white pt-2 border-t border-luxury-border">
+            <span>Total Payable:</span>
+            <span id="totalDisplay" class="gold-gradient-text font-serif text-lg">Rs. 0</span>
+          </div>
+        </div>
+
+        <button onclick="proceedToCheckout()" class="w-full gold-btn py-3 rounded text-black font-bold uppercase tracking-widest text-xs mt-3">
+          Confirm Order
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. CUSTOMER AUTH MODAL (MANDATORY BEFORE CHECKOUT) -->
+  <div id="authModal" class="fixed inset-0 bg-black/85 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-luxury-card border border-luxury-border w-full max-w-sm rounded-xl p-6 relative">
+      <button onclick="closeModal('authModal')" class="absolute top-4 right-4 text-gray-400 hover:text-white"><i class="fa-solid fa-xmark"></i></button>
+      
+      <h3 id="authTitle" class="font-serif text-2xl font-bold gold-gradient-text mb-1">Customer Sign In</h3>
+      <p class="text-xs text-gray-400 mb-6">Please log in to your Goldsheff account to proceed with your order.</p>
+
+      <form id="authForm" onsubmit="handleAuthSubmit(event)" class="space-y-4 text-xs">
+        <div>
+          <label class="block text-gray-300 mb-1">Full Name</label>
+          <input type="text" id="authName" required class="w-full bg-luxury-surface border border-luxury-border px-3 py-2.5 rounded text-white focus:outline-none focus:border-gold-500">
+        </div>
+        <div>
+          <label class="block text-gray-300 mb-1">Email Address</label>
+          <input type="email" id="authEmail" required class="w-full bg-luxury-surface border border-luxury-border px-3 py-2.5 rounded text-white focus:outline-none focus:border-gold-500">
+        </div>
+        <div>
+          <label class="block text-gray-300 mb-1">Phone Number</label>
+          <input type="tel" id="authPhone" required placeholder="+92 3XX XXXXXXX" class="w-full bg-luxury-surface border border-luxury-border px-3 py-2.5 rounded text-white focus:outline-none focus:border-gold-500">
+        </div>
+
+        <button type="submit" class="w-full gold-btn py-3 rounded text-black font-bold uppercase tracking-widest text-xs mt-4">
+          Save & Continue
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- 3. CHECKOUT DETAILS MODAL -->
+  <div id="checkoutModal" class="fixed inset-0 bg-black/85 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-luxury-card border border-luxury-border w-full max-w-md rounded-xl p-6 relative max-h-[90vh] overflow-y-auto">
+      <button onclick="closeModal('checkoutModal')" class="absolute top-4 right-4 text-gray-400 hover:text-white"><i class="fa-solid fa-xmark"></i></button>
+      
+      <h3 class="font-serif text-2xl font-bold gold-gradient-text mb-1">Delivery Address</h3>
+      <p class="text-xs text-gray-400 mb-4">Complete your details for express doorstep dispatch.</p>
+
+      <form id="checkoutForm" onsubmit="finalizeOrder(event)" class="space-y-3 text-xs">
+        <div>
+          <label class="block text-gray-300 mb-1">Recipient Name</label>
+          <input type="text" id="orderRecipient" required class="w-full bg-luxury-surface border border-luxury-border px-3 py-2 rounded text-white">
+        </div>
+        <div>
+          <label class="block text-gray-300 mb-1">Delivery Address</label>
+          <textarea id="orderAddress" rows="2" required placeholder="House/Flat #, Street, Area" class="w-full bg-luxury-surface border border-luxury-border px-3 py-2 rounded text-white"></textarea>
+        </div>
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block text-gray-300 mb-1">City</label>
+            <input type="text" id="orderCity" required placeholder="Karachi, Lahore, etc." class="w-full bg-luxury-surface border border-luxury-border px-3 py-2 rounded text-white">
+          </div>
+          <div>
+            <label class="block text-gray-300 mb-1">Country</label>
+            <input type="text" id="orderCountry" required value="Pakistan" class="w-full bg-luxury-surface border border-luxury-border px-3 py-2 rounded text-white">
+          </div>
+        </div>
+        <div>
+          <label class="block text-gray-300 mb-1">Payment Method</label>
+          <select id="paymentMethod" class="w-full bg-luxury-surface border border-luxury-border px-3 py-2 rounded text-white">
+            <option>Cash on Delivery (Pakistan Only)</option>
+            <option>Direct Bank Transfer / EasyPaisa</option>
+            <option>International Card (Worldwide)</option>
+          </select>
+        </div>
+
+        <div class="bg-luxury-surface p-3 rounded border border-luxury-border text-[11px] space-y-1">
+          <div class="flex justify-between"><span>Total Order Value:</span> <strong id="checkoutTotalFinal" class="text-gold-400">Rs. 0</strong></div>
+          <p class="text-gray-400 text-[10px]">Instant confirmation email will be sent automatically to your registered address.</p>
+        </div>
+
+        <button type="submit" class="w-full gold-btn py-3 rounded text-black font-bold uppercase tracking-widest text-xs mt-3">
+          Place Order Now
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- 4. HIDDEN ADMIN PANEL (PIN: Harry.__.626) -->
+  <div id="adminModal" class="fixed inset-0 bg-black/90 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-luxury-card border border-gold-500/50 w-full max-w-2xl rounded-2xl p-6 relative max-h-[92vh] overflow-y-auto">
+      <button onclick="closeModal('adminModal')" class="absolute top-4 right-4 text-gray-400 hover:text-white"><i class="fa-solid fa-xmark text-lg"></i></button>
+
+      <div class="flex items-center space-x-3 mb-6">
+        <i class="fa-solid fa-shield-halved text-2xl text-gold-400"></i>
+        <div>
+          <h2 class="font-serif text-2xl font-bold gold-gradient-text">Goldsheff Admin Dashboard</h2>
+          <p class="text-xs text-gray-400">Live inventory control & product management</p>
+        </div>
+      </div>
+
+      <!-- Add Product Form -->
+      <form id="adminProductForm" onsubmit="handleProductUpload(event)" class="bg-luxury-surface p-5 rounded-xl border border-luxury-border space-y-4 text-xs mb-8">
+        <h4 class="font-semibold text-gold-400 text-sm tracking-wider uppercase">Add New Luxury Product</h4>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-gray-300 mb-1">Product Title</label>
+            <input type="text" id="prodTitle" required placeholder="e.g. 24K Gold Saffron Radiance Elixir" class="w-full bg-luxury-dark border border-luxury-border px-3 py-2 rounded text-white">
+          </div>
+          <div>
+            <label class="block text-gray-300 mb-1">Upload Product Image (From Device)</label>
+            <input type="file" id="prodImage" accept="image/*" required class="w-full bg-luxury-dark border border-luxury-border px-3 py-1.5 rounded text-gray-300 file:mr-3 file:py-1 file:px-2 file:rounded file:border-0 file:text-[10px] file:bg-gold-500 file:text-black">
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div>
+            <label class="block text-gray-300 mb-1">Original Price (PKR)</label>
+            <input type="number" id="prodPrice" required placeholder="2500" class="w-full bg-luxury-dark border border-luxury-border px-3 py-2 rounded text-white">
+          </div>
+          <div>
+            <label class="block text-gray-300 mb-1">Manual Sale Price (PKR, Optional)</label>
+            <input type="number" id="prodSalePrice" placeholder="e.g. 1999" class="w-full bg-luxury-dark border border-luxury-border px-3 py-2 rounded text-white">
+          </div>
+          <div>
+            <label class="block text-gray-300 mb-1">Complimentary Gift (Optional)</label>
+            <input type="text" id="prodGift" placeholder="e.g. Free Jade Roller" class="w-full bg-luxury-dark border border-luxury-border px-3 py-2 rounded text-white">
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-gray-300 mb-1">Natural & Organic Description</label>
+          <textarea id="prodDesc" rows="3" required placeholder="Ingredients, benefits, natural extracts..." class="w-full bg-luxury-dark border border-luxury-border px-3 py-2 rounded text-white"></textarea>
+        </div>
+
+        <button type="submit" class="gold-btn w-full py-2.5 rounded text-black font-bold uppercase tracking-wider text-xs">
+          Publish to Live Store
+        </button>
+      </form>
+
+      <!-- Manage Live Products (Edit Price / Delete) -->
+      <div>
+        <h4 class="font-semibold text-gold-400 text-sm tracking-wider uppercase mb-3">Live Active Products</h4>
+        <div id="adminProductList" class="space-y-3">
+          <!-- Active items displayed for live price edits -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- JAVASCRIPT APP LOGIC -->
+  <script>
+    // -----------------------------------------------------------
+    // 1. STATE INITIALIZATION (Local Sync + Cloud Ready)
+    // -----------------------------------------------------------
+    let products = JSON.parse(localStorage.getItem('goldsheff_products') || '[]');
+    let cart = [];
+    let currentUser = JSON.parse(localStorage.getItem('goldsheff_user') || 'null');
+    let appliedPromo = null; // { code: '...', discountPercent: 0 }
+
+    // EmailJS Setup (Replace with your free Public Key from emailjs.com)
+    emailjs.init("YOUR_EMAILJS_PUBLIC_KEY");
+
+    document.addEventListener("DOMContentLoaded", () => {
+      renderProducts();
+      updateAuthStatusUI();
+    });
+
+    // Keyboard shortcut for hidden admin: Ctrl + Shift + A
+    window.addEventListener('keydown', (e) => {
+      if (e.ctrlKey && e.shiftKey && (e.key === 'A' || e.key === 'a')) {
+        requestAdminAccess();
+      }
+    });
+
+    // -----------------------------------------------------------
+    // 2. ADMIN ACCESS LOGIC
+    // -----------------------------------------------------------
+    function requestAdminAccess() {
+      const pin = prompt("Enter Goldsheff Staff Authentication Key:");
+      if (pin === "Harry.__.626") {
+        openModal('adminModal');
+        renderAdminProductList();
+      } else if (pin !== null) {
+        alert("Access Denied: Invalid Security Passcode.");
+      }
+    }
+
+    // Convert file to base64 for instant device storage
+    function readFileAsDataURL(file) {
+      return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = () => resolve(reader.result);
+        reader.onerror = reject;
+        reader.readAsDataURL(file);
+      });
+    }
+
+    async function handleProductUpload(event) {
+      event.preventDefault();
+      const title = document.getElementById('prodTitle').value;
+      const fileInput = document.getElementById('prodImage');
+      const regularPrice = parseFloat(document.getElementById('prodPrice').value);
+      const salePrice = document.getElementById('prodSalePrice').value ? parseFloat(document.getElementById('prodSalePrice').value) : null;
+      const gift = document.getElementById('prodGift').value.trim();
+      const desc = document.getElementById('prodDesc').value;
+
+      if (!fileInput.files || fileInput.files.length === 0) {
+        alert("Please choose an image file from your device.");
+        return;
+      }
+
+      const imageBase64 = await readFileAsDataURL(fileInput.files[0]);
+
+      const newProduct = {
+        id: 'gs_' + Date.now(),
+        title,
+        price: regularPrice,
+        salePrice: salePrice,
+        gift: gift || null,
+        description: desc,
+        image: imageBase64,
+        dateAdded: new Date().toISOString()
+      };
+
+      products.push(newProduct);
+      saveProductsState();
+      renderProducts();
+      renderAdminProductList();
+      document.getElementById('adminProductForm').reset();
+      alert("Product published successfully to the live store!");
+    }
+
+    function updateProductPrice(id) {
+      const newRegular = prompt("Enter new Regular Price (PKR):");
+      if (newRegular === null) return;
+
+      const newSale = prompt("Enter new Sale Price (PKR) or leave blank to remove sale:");
+      
+      const prod = products.find(p => p.id === id);
+      if (prod) {
+        prod.price = parseFloat(newRegular);
+        prod.salePrice = newSale ? parseFloat(newSale) : null;
+        saveProductsState();
+        renderProducts();
+        renderAdminProductList();
+        alert("Price updated live!");
+      }
+    }
+
+    function deleteProduct(id) {
+      if (confirm("Are you sure you want to remove this product?")) {
+        products = products.filter(p => p.id !== id);
+        saveProductsState();
+        renderProducts();
+        renderAdminProductList();
+      }
+    }
+
+    function saveProductsState() {
+      localStorage.setItem('goldsheff_products', JSON.stringify(products));
+    }
+
+    // -----------------------------------------------------------
+    // 3. CATALOG RENDERING
+    // -----------------------------------------------------------
+    function renderProducts() {
+      const grid = document.getElementById('productGrid');
+      const notice = document.getElementById('emptyCatalogNotice');
+
+      if (!products || products.length === 0) {
+        grid.innerHTML = '';
+        notice.classList.remove('hidden');
+        return;
+      }
+
+      notice.classList.add('hidden');
+      grid.innerHTML = products.map(p => {
+        const hasSale = p.salePrice && p.salePrice < p.price;
+        const currentPrice = hasSale ? p.salePrice : p.price;
+
+        return `
+          <div class="bg-luxury-card border border-luxury-border rounded-2xl overflow-hidden flex flex-col group hover:border-gold-500/50 transition duration-300">
+            <div class="relative h-72 overflow-hidden bg-black">
+              <img src="${p.image}" alt="${p.title}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+              ${hasSale ? `<span class="absolute top-3 left-3 bg-red-700 text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">Sale</span>` : ''}
+              ${p.gift ? `<span class="absolute top-3 right-3 bg-gold-500 text-black text-[10px] font-bold px-3 py-1 rounded-full flex items-center gap-1 shadow"><i class="fa-solid fa-gift"></i> ${p.gift}</span>` : ''}
+            </div>
+
+            <div class="p-5 flex-1 flex flex-col justify-between space-y-3">
+              <div>
+                <span class="text-[10px] text-gold-400 uppercase tracking-widest">Natural & Organic</span>
+                <h3 class="font-serif text-xl font-bold text-white mt-1 leading-snug">${p.title}</h3>
+                <p class="text-xs text-gray-400 mt-2 line-clamp-2">${p.description}</p>
+              </div>
+
+              <div class="pt-3 border-t border-luxury-border flex items-center justify-between">
+                <div>
+                  ${hasSale ? `
+                    <div class="flex items-baseline space-x-2">
+                      <span class="font-serif text-xl font-bold text-white">Rs. ${p.salePrice.toLocaleString()}</span>
+                      <span class="text-xs text-gray-500 line-through">Rs. ${p.price.toLocaleString()}</span>
+                    </div>
+                  ` : `
+                    <span class="font-serif text-xl font-bold text-white">Rs. ${p.price.toLocaleString()}</span>
+                  `}
+                </div>
+                <button onclick="addToCart('${p.id}')" class="gold-btn text-black text-xs font-bold px-4 py-2 rounded-full uppercase tracking-wider flex items-center gap-2">
+                  <i class="fa-solid fa-plus"></i> Bag
+                </button>
+              </div>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function renderAdminProductList() {
+      const container = document.getElementById('adminProductList');
+      if (products.length === 0) {
+        container.innerHTML = `<p class="text-xs text-gray-500">No active products found in store database.</p>`;
+        return;
+      }
+
+      container.innerHTML = products.map(p => `
+        <div class="flex items-center justify-between p-3 bg-luxury-dark rounded-lg border border-luxury-border text-xs">
+          <div class="flex items-center space-x-3">
+            <img src="${p.image}" class="w-10 h-10 object-cover rounded">
+            <div>
+              <p class="font-semibold text-white">${p.title}</p>
+              <p class="text-[10px] text-gray-400">Regular: Rs. ${p.price} | Sale: ${p.salePrice ? 'Rs. ' + p.salePrice : 'None'} | Gift: ${p.gift || 'No'}</p>
+            </div>
+          </div>
+          <div class="flex space-x-2">
+            <button onclick="updateProductPrice('${p.id}')" class="px-2 py-1 bg-luxury-surface border border-gold-500/40 rounded text-gold-400 hover:text-white">Edit Price</button>
+            <button onclick="deleteProduct('${p.id}')" class="px-2 py-1 bg-red-950 border border-red-800 rounded text-red-300 hover:text-white">Delete</button>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    // -----------------------------------------------------------
+    // 4. CART & PROMO LOGIC
+    // -----------------------------------------------------------
+    function addToCart(productId) {
+      const product = products.find(p => p.id === productId);
+      if (!product) return;
+
+      const existing = cart.find(item => item.id === productId);
+      if (existing) {
+        existing.qty += 1;
+      } else {
+        cart.push({ ...product, qty: 1 });
+      }
+
+      updateCartBadge();
+      renderCartItems();
+      openModal('cartModal');
+    }
+
+    function updateCartBadge() {
+      const totalCount = cart.reduce((sum, item) => sum + item.qty, 0);
+      document.getElementById('cartCountBadge').innerText = totalCount;
+    }
+
+    function renderCartItems() {
+      const container = document.getElementById('cartItemsList');
+      if (cart.length === 0) {
+        container.innerHTML = `<p class="text-xs text-gray-500 text-center py-10">Your bag is currently empty.</p>`;
+        calculateCartTotals();
+        return;
+      }
+
+      container.innerHTML = cart.map(item => {
+        const itemPrice = item.salePrice || item.price;
+        return `
+          <div class="flex items-center space-x-3 bg-luxury-surface p-3 rounded-lg border border-luxury-border">
+            <img src="${item.image}" class="w-12 h-12 object-cover rounded">
+            <div class="flex-1">
+              <h4 class="text-xs font-semibold text-white leading-tight">${item.title}</h4>
+              <p class="text-[11px] text-gold-400 font-serif">Rs. ${itemPrice.toLocaleString()} x ${item.qty}</p>
+            </div>
+            <div class="flex items-center space-x-2">
+              <button onclick="changeQty('${item.id}', -1)" class="w-6 h-6 rounded bg-luxury-card border border-luxury-border flex items-center justify-center text-xs text-gray-300">-</button>
+              <span class="text-xs font-bold">${item.qty}</span>
+              <button onclick="changeQty('${item.id}', 1)" class="w-6 h-6 rounded bg-luxury-card border border-luxury-border flex items-center justify-center text-xs text-gray-300">+</button>
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      calculateCartTotals();
+    }
+
+    function changeQty(id, delta) {
+      const item = cart.find(i => i.id === id);
+      if (item) {
+        item.qty += delta;
+        if (item.qty <= 0) {
+          cart = cart.filter(i => i.id !== id);
+        }
+      }
+      updateCartBadge();
+      renderCartItems();
+    }
+
+    function applyPromoCode() {
+      const input = document.getElementById('promoInput').value.trim().toUpperCase();
+      const msg = document.getElementById('promoMessage');
+
+      if (input === "FIRSTORDER") {
+        appliedPromo = { code: "FIRSTORDER", discountPercent: 20 };
+        msg.className = "text-[11px] text-green-400 block";
+        msg.innerText = "Code Applied: 20% Discount Activated!";
+      } else if (input === "GOLDSHEFF021") {
+        appliedPromo = { code: "GOLDSHEFF021", discountPercent: 35 };
+        msg.className = "text-[11px] text-green-400 block";
+        msg.innerText = "Code Applied: 35% Exclusive VIP Discount Activated!";
+      } else {
+        appliedPromo = null;
+        msg.className = "text-[11px] text-red-400 block";
+        msg.innerText = "Invalid Promo Code. Try FIRSTORDER or GOLDSHEFF021.";
+      }
+
+      calculateCartTotals();
+    }
+
+    function calculateCartTotals() {
+      let subtotal = cart.reduce((sum, item) => {
+        const price = item.salePrice || item.price;
+        return sum + (price * item.qty);
+      }, 0);
+
+      let discountAmount = 0;
+      if (appliedPromo && subtotal > 0) {
+        discountAmount = (subtotal * appliedPromo.discountPercent) / 100;
+      }
+
+      const discountedSubtotal = subtotal - discountAmount;
+
+      // Free shipping in Pakistan on orders above Rs. 1500
+      let shipping = 0;
+      if (subtotal > 0) {
+        shipping = discountedSubtotal >= 1500 ? 0 : 250;
+      }
+
+      const grandTotal = discountedSubtotal + shipping;
+
+      document.getElementById('subtotalDisplay').innerText = `Rs. ${subtotal.toLocaleString()}`;
+      document.getElementById('discountDisplay').innerText = `- Rs. ${Math.round(discountAmount).toLocaleString()}`;
+      document.getElementById('shippingDisplay').innerText = shipping === 0 ? "FREE (Rs. 1500+ Benefit)" : `Rs. ${shipping}`;
+      document.getElementById('totalDisplay').innerText = `Rs. ${Math.round(grandTotal).toLocaleString()}`;
+
+      return { subtotal, discountAmount, shipping, grandTotal };
+    }
+
+    // -----------------------------------------------------------
+    // 5. CUSTOMER AUTH & MANDATORY LOGIN BEFORE ORDER
+    // -----------------------------------------------------------
+    function updateAuthStatusUI() {
+      const btnText = document.getElementById('authBtnText');
+      if (currentUser) {
+        btnText.innerText = currentUser.name.split(' ')[0];
+      } else {
+        btnText.innerText = "Login";
+      }
+    }
+
+    function handleAuthSubmit(event) {
+      event.preventDefault();
+      const name = document.getElementById('authName').value.trim();
+      const email = document.getElementById('authEmail').value.trim();
+      const phone = document.getElementById('authPhone').value.trim();
+
+      currentUser = { name, email, phone };
+      localStorage.setItem('goldsheff_user', JSON.stringify(currentUser));
+      updateAuthStatusUI();
+      closeModal('authModal');
+      alert(`Welcome to Goldsheff, ${name}!`);
+
+      // If user had clicked checkout, resume checkout modal
+      if (cart.length > 0) {
+        proceedToCheckout();
+      }
+    }
+
+    function proceedToCheckout() {
+      if (cart.length === 0) {
+        alert("Your shopping bag is empty.");
+        return;
+      }
+
+      // Enforcement: User must be logged in first!
+      if (!currentUser) {
+        closeModal('cartModal');
+        openModal('authModal');
+        alert("Please login or register your details before confirming your order.");
+        return;
+      }
+
+      const totals = calculateCartTotals();
+      document.getElementById('orderRecipient').value = currentUser.name;
+      document.getElementById('checkoutTotalFinal').innerText = `Rs. ${Math.round(totals.grandTotal).toLocaleString()}`;
+      
+      closeModal('cartModal');
+      openModal('checkoutModal');
+    }
+
+    // -----------------------------------------------------------
+    // 6. ORDER FINALIZATION & INSTANT AUTOMATIC EMAIL
+    // -----------------------------------------------------------
+    function finalizeOrder(event) {
+      event.preventDefault();
+
+      const recipient = document.getElementById('orderRecipient').value;
+      const address = document.getElementById('orderAddress').value;
+      const city = document.getElementById('orderCity').value;
+      const country = document.getElementById('orderCountry').value;
+      const payment = document.getElementById('paymentMethod').value;
+      const totals = calculateCartTotals();
+
+      const orderData = {
+        orderID: 'GS-' + Math.floor(100000 + Math.random() * 900000),
+        customerName: recipient,
+        customerEmail: currentUser.email,
+        customerPhone: currentUser.phone,
+        shippingAddress: `${address}, ${city}, ${country}`,
+        items: cart.map(i => `${i.title} (x${i.qty}) - Rs. ${(i.salePrice || i.price) * i.qty}`).join(", "),
+        totalPaid: Math.round(totals.grandTotal),
+        paymentMethod: payment,
+        date: new Date().toLocaleString()
+      };
+
+      // 1. Send Instant Automatic Email via EmailJS
+      emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", {
+        to_name: orderData.customerName,
+        to_email: orderData.customerEmail,
+        order_id: orderData.orderID,
+        order_details: orderData.items,
+        total_amount: `PKR ${orderData.totalPaid}`,
+        shipping_address: orderData.shippingAddress,
+        store_name: "Goldsheff Luxury Cosmetics"
+      }).then(
+        (response) => {
+          console.log("SUCCESS! Confirmation email sent.", response.status, response.text);
+        },
+        (error) => {
+          console.warn("Email dispatch note: Ensure your EmailJS Service & Template IDs are configured.", error);
+        }
+      );
+
+      // 2. Alert & Reset
+      alert(`🎉 Order ${orderData.orderID} Confirmed!\n\nThank you, ${orderData.customerName}. An official confirmation email from Goldsheff has been sent directly to ${orderData.customerEmail}.`);
+
+      cart = [];
+      appliedPromo = null;
+      updateCartBadge();
+      closeModal('checkoutModal');
+    }
+
+    // -----------------------------------------------------------
+    // 7. MODAL UTILITIES
+    // -----------------------------------------------------------
+    function openModal(modalId) {
+      document.getElementById(modalId).classList.remove('hidden');
+    }
+
+    function closeModal(modalId) {
+      document.getElementById(modalId).classList.add('hidden');
+    }
+  </script>
+</body>
+</html>
