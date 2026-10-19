@@ -1,0 +1,1436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Goldsheff Nutraceuticals (Pvt.) Ltd.</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gold: {
+                            400: '#E6CA65',
+                            500: '#D4AF37',
+                            600: '#AA820A',
+                            700: '#856404',
+                            bg: '#FAF8F0'
+                        },
+                        silver: {
+                            300: '#E5E7EB',
+                            400: '#9CA3AF',
+                            500: '#6B7280',
+                            metallic: '#C0C0C0'
+                        }
+                    },
+                    fontFamily: {
+                        heading: ['Cinzel', 'serif'],
+                        body: ['Plus Jakarta Sans', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #FAF8F0; color: #1F2937; }
+        .font-heading { font-family: 'Cinzel', serif; }
+        
+        .btn-gold {
+            background: linear-gradient(135deg, #BF953F 0%, #FCF6BA 25%, #B38728 50%, #FBF5B7 75%, #AA771C 100%);
+            color: #111;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.25);
+        }
+        .btn-gold:hover {
+            opacity: 0.95;
+            transform: translateY(-1px);
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+        }
+
+        .btn-silver {
+            background: linear-gradient(135deg, #E0E0E0 0%, #FFFFFF 30%, #B0B0B0 70%, #BEBEBE 100%);
+            color: #222;
+            font-weight: 600;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            box-shadow: 0 8px 32px 0 rgba(197, 160, 40, 0.08);
+        }
+
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #D4AF37; border-radius: 4px; }
+
+        @keyframes pulseGlow {
+            0%, 100% { box-shadow: 0 0 15px rgba(212, 175, 55, 0.3); }
+            50% { box-shadow: 0 0 25px rgba(212, 175, 55, 0.6); }
+        }
+        .glow-effect { animation: pulseGlow 3s infinite; }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between selection:bg-gold-500 selection:text-white">
+
+    <!-- TOP ANNOUNCEMENT BAR -->
+    <div id="topBanner" class="bg-gradient-to-r from-yellow-700 via-gold-500 to-yellow-700 text-white text-xs md:text-sm py-2 px-4 text-center font-medium shadow-sm flex items-center justify-between">
+        <div class="flex-1 text-center flex items-center justify-center gap-2">
+            <i class="fa-solid fa-truck-fast animate-bounce"></i>
+            <span><strong>FREE SHIPPING</strong> ON ALL ORDERS ABOVE <strong>PKR 1,500</strong> IN PAKISTAN!</span>
+        </div>
+        <button onclick="document.getElementById('topBanner').style.display='none'" class="text-white/80 hover:text-white text-xs px-2">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+    </div>
+
+    <!-- MAIN NAVBAR -->
+    <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-gold-500/20 shadow-xs">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between">
+            
+            <a href="#" onclick="switchTab('store')" class="flex items-center gap-3 group">
+                <svg class="w-10 h-14 md:w-12 md:h-16 transition-transform duration-300 group-hover:scale-105" viewBox="0 0 140 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="goldHelix" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#FFF2A1" />
+                            <stop offset="40%" stop-color="#D4AF37" />
+                            <stop offset="100%" stop-color="#997510" />
+                        </linearGradient>
+                        <linearGradient id="silverHelix" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#FFFFFF" />
+                            <stop offset="50%" stop-color="#C0C0C0" />
+                            <stop offset="100%" stop-color="#707070" />
+                        </linearGradient>
+                    </defs>
+                    <circle cx="70" cy="22" r="11" fill="url(#silverHelix)" filter="drop-shadow(0px 2px 3px rgba(0,0,0,0.2))" />
+                    <path d="M 68 38 C 25 60, 20 110, 80 162 C 60 140, 38 100, 52 70 Z" fill="url(#silverHelix)" />
+                    <path d="M 60 28 C 105 50, 115 110, 50 150 C 85 130, 95 80, 68 50 Z" fill="url(#goldHelix)" />
+                    <line x1="56" y1="80" x2="82" y2="82" stroke="#AA820A" stroke-width="2.5" stroke-linecap="round"/>
+                    <line x1="52" y1="96" x2="86" y2="98" stroke="#888888" stroke-width="2.5" stroke-linecap="round"/>
+                    <line x1="53" y1="112" x2="83" y2="114" stroke="#AA820A" stroke-width="2.5" stroke-linecap="round"/>
+                    <line x1="58" y1="128" x2="78" y2="129" stroke="#888888" stroke-width="2.5" stroke-linecap="round"/>
+                </svg>
+
+                <div class="flex flex-col">
+                    <span class="font-heading font-extrabold text-base sm:text-lg md:text-xl tracking-wider text-gray-900 leading-tight">
+                        GOLDSHEFF
+                    </span>
+                    <span class="text-[10px] sm:text-xs font-semibold tracking-widest text-gold-600 uppercase">
+                        Nutraceuticals (Pvt.) Ltd.
+                    </span>
+                    <span class="text-[9px] sm:text-[10px] italic font-medium text-gray-500 font-serif">
+                        Genius in Healthcare
+                    </span>
+                </div>
+            </a>
+
+            <div class="flex items-center space-x-3 sm:space-x-5">
+                <div class="relative hidden md:block w-48 lg:w-64">
+                    <input type="text" id="searchInput" oninput="filterProducts()" placeholder="Search health products..." 
+                           class="w-full pl-9 pr-3 py-1.5 text-xs bg-gray-50 border border-gold-500/30 rounded-full focus:outline-none focus:border-gold-500 focus:bg-white transition-all">
+                    <i class="fa-solid fa-magnifying-glass absolute left-3 top-2.5 text-gray-400 text-xs"></i>
+                </div>
+
+                <button onclick="toggleModal('accountModal')" class="p-2 text-gray-600 hover:text-gold-600 transition-colors relative" title="User Account">
+                    <i class="fa-regular fa-user text-lg"></i>
+                    <span id="userBadge" class="hidden absolute top-1 right-1 w-2 h-2 bg-green-500 rounded-full"></span>
+                </button>
+
+                <button onclick="toggleCartDrawer()" class="btn-gold px-4 py-2 rounded-full text-xs flex items-center gap-2 relative">
+                    <i class="fa-solid fa-bag-shopping"></i>
+                    <span class="hidden sm:inline">Cart</span>
+                    <span id="cartCountBadge" class="bg-gray-900 text-white text-[10px] w-5 h-5 rounded-full flex items-center justify-center font-bold">0</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- LIVE GLOBAL COUNTDOWN TIMER BANNER -->
+    <div id="globalSaleCountdownBar" class="bg-gradient-to-r from-gray-900 via-amber-950 to-gray-900 text-gold-400 py-3.5 px-4 shadow-lg border-y border-gold-500/40">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between text-center gap-3">
+            <div class="flex items-center gap-2 text-xs md:text-sm font-extrabold tracking-wide">
+                <i class="fa-solid fa-fire text-red-500 text-lg animate-bounce"></i>
+                <span id="saleTitleText" class="text-white uppercase">SPECIAL HEALTH & WELLNESS SALE IS LIVE!</span>
+            </div>
+            
+            <div class="flex items-center space-x-2 text-xs font-mono">
+                <span class="text-gray-300 mr-1 text-[11px] font-sans font-bold">LIMITED TIME OFFER:</span>
+                <div class="bg-black/80 px-3 py-1.5 rounded-lg border border-gold-500/50 text-gold-400 font-extrabold text-sm shadow-inner" id="cdHours">00</div> :
+                <div class="bg-black/80 px-3 py-1.5 rounded-lg border border-gold-500/50 text-gold-400 font-extrabold text-sm shadow-inner" id="cdMins">00</div> :
+                <div class="bg-black/80 px-3 py-1.5 rounded-lg border border-gold-500/50 text-gold-400 font-extrabold text-sm shadow-inner" id="cdSecs">00</div>
+            </div>
+
+            <a href="#productsHeading" class="btn-gold px-4 py-1.5 rounded-full text-[11px] uppercase font-bold tracking-wider">
+                Claim Sale Offer Now
+            </a>
+        </div>
+    </div>
+
+    <!-- MAIN BODY CONTENT CONTAINER -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-grow w-full">
+
+        <!-- STORE FRONT TAB -->
+        <section id="storeTab">
+            <div class="relative rounded-2xl overflow-hidden mb-10 bg-gradient-to-r from-amber-900 via-gold-600 to-amber-950 text-white p-8 md:p-12 shadow-xl glow-effect">
+                <div class="relative z-10 max-w-2xl">
+                    <span class="bg-white/20 backdrop-blur-md text-white text-[10px] md:text-xs font-bold px-3 py-1 rounded-full uppercase tracking-widest border border-white/30">
+                        100% Organic & Medicated Formulas
+                    </span>
+                    <h1 class="font-heading text-2xl md:text-4xl font-bold mt-4 mb-3 leading-tight">
+                        Premium Nutraceutical Supplements For Healthy Life
+                    </h1>
+                    <p class="text-gray-100 text-xs md:text-sm mb-6 leading-relaxed">
+                        Scientifically formulated dietary supplements, vitamins, and wellness solutions tailored for ultimate health perfection.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#productsHeading" class="btn-gold px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider inline-block">
+                            Explore Catalog <i class="fa-solid fa-arrow-down ml-1"></i>
+                        </a>
+                        <a href="tel:03175659994" class="btn-silver px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider inline-block">
+                            <i class="fa-solid fa-headset mr-1"></i> Doctor Helpline
+                        </a>
+                    </div>
+                </div>
+                <div class="absolute right-0 top-0 bottom-0 opacity-10 pointer-events-none flex items-center pr-10">
+                    <i class="fa-solid fa-dna text-[240px]"></i>
+                </div>
+            </div>
+
+            <div class="flex items-center justify-between flex-wrap gap-4 mb-6 border-b border-gold-500/20 pb-4">
+                <div class="flex items-center space-x-2 overflow-x-auto pb-2 scrollbar-none" id="categoryFilters">
+                    <button onclick="setCategory('all', event)" class="cat-pill active bg-gold-500 text-white px-4 py-1.5 rounded-full text-xs font-semibold shadow-xs">All Products</button>
+                    <button onclick="setCategory('Medicated', event)" class="cat-pill bg-white text-gray-700 hover:bg-gold-50 px-4 py-1.5 rounded-full text-xs font-semibold border border-gray-200">Medicated</button>
+                    <button onclick="setCategory('Organic', event)" class="cat-pill bg-white text-gray-700 hover:bg-gold-50 px-4 py-1.5 rounded-full text-xs font-semibold border border-gray-200">Organic Supplement</button>
+                    <button onclick="setCategory('Vitamins', event)" class="cat-pill bg-white text-gray-700 hover:bg-gold-50 px-4 py-1.5 rounded-full text-xs font-semibold border border-gray-200">Vitamins & Minerals</button>
+                </div>
+                <div class="text-xs text-gray-500">
+                    Showing <span id="productCount" class="font-bold text-gray-800">0</span> items
+                </div>
+            </div>
+
+            <div id="productsHeading" class="scroll-mt-24"></div>
+            
+            <div id="productGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                <!-- Products dynamically rendered here -->
+            </div>
+
+            <div id="emptyState" class="hidden flex flex-col items-center justify-center py-20 text-center glass-card rounded-2xl max-w-xl mx-auto my-10 p-8 border border-gold-500/30">
+                <div class="w-20 h-20 bg-gold-500/10 rounded-full flex items-center justify-center text-gold-600 mb-4 text-3xl">
+                    <i class="fa-solid fa-box-open"></i>
+                </div>
+                <h3 class="font-heading text-lg font-bold text-gray-800 mb-2">Abhi koi product available nahi hai</h3>
+                <p class="text-xs text-gray-500 mb-6 max-w-md leading-relaxed">
+                    Admin panel se naye products add karein. Save hotay hi products live store par immediately publish ho jayengi.
+                </p>
+                <button onclick="openAdminWithCheck()" class="btn-gold px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider">
+                    <i class="fa-solid fa-lock mr-1"></i> Admin Portal
+                </button>
+            </div>
+        </section>
+
+        <!-- ADMIN PANEL TAB -->
+        <section id="adminTab" class="hidden">
+            <div class="bg-white rounded-2xl shadow-lg border border-gold-500/20 p-6 md:p-8">
+                
+                <div class="flex items-center justify-between pb-6 mb-6 border-b border-gray-200 flex-wrap gap-4">
+                    <div>
+                        <div class="flex items-center gap-2">
+                            <span class="bg-gold-500 text-white text-[10px] font-bold px-2.5 py-0.5 rounded-full uppercase">SECURE PORTAL</span>
+                            <h2 class="font-heading text-xl md:text-2xl font-bold text-gray-900">Goldsheff Admin Dashboard</h2>
+                        </div>
+                        <p class="text-xs text-gray-500 mt-1">Manage catalog, upload items, set sale countdown, and process customer orders.</p>
+                    </div>
+
+                    <div class="flex items-center space-x-3">
+                        <button onclick="switchTab('store')" class="btn-silver px-4 py-2 rounded-xl text-xs font-semibold">
+                            <i class="fa-solid fa-store mr-1"></i> View Live Store
+                        </button>
+                        <button onclick="logoutAdmin()" class="bg-red-50 text-red-600 border border-red-200 px-4 py-2 rounded-xl text-xs font-semibold hover:bg-red-100">
+                            <i class="fa-solid fa-right-from-bracket mr-1"></i> Lock Admin
+                        </button>
+                    </div>
+                </div>
+
+                <div class="flex border-b border-gray-200 space-x-6 mb-6">
+                    <button onclick="setAdminSubTab('products')" id="subTabProd" class="pb-3 text-xs font-bold border-b-2 border-gold-500 text-gold-600">Product Management</button>
+                    <button onclick="setAdminSubTab('add')" id="subTabAdd" class="pb-3 text-xs font-semibold text-gray-500 hover:text-gold-600">+ Add New Product</button>
+                    <button onclick="setAdminSubTab('sale')" id="subTabSale" class="pb-3 text-xs font-semibold text-gray-500 hover:text-gold-600"><i class="fa-solid fa-clock text-amber-500 mr-1"></i> Sale Timer Manager</button>
+                    <button onclick="setAdminSubTab('orders')" id="subTabOrders" class="pb-3 text-xs font-semibold text-gray-500 hover:text-gold-600">Orders (<span id="adminOrderCount">0</span>)</button>
+                </div>
+
+                <!-- SUB TAB 1: PRODUCT LIST & CONTROLS -->
+                <div id="adminProdContent">
+                    <div class="flex justify-between items-center mb-4">
+                        <h3 class="text-sm font-bold text-gray-800">Live Inventory Products</h3>
+                        <button onclick="setAdminSubTab('add')" class="btn-gold px-4 py-1.5 rounded-lg text-xs font-bold">+ Add Product</button>
+                    </div>
+
+                    <div class="overflow-x-auto border border-gray-200 rounded-xl">
+                        <table class="w-full text-left text-xs text-gray-600">
+                            <thead class="bg-gray-50 text-gray-700 font-bold uppercase text-[10px] border-b border-gray-200">
+                                <tr>
+                                    <th class="p-3">Image</th>
+                                    <th class="p-3">Product Name</th>
+                                    <th class="p-3">Category</th>
+                                    <th class="p-3">Price (PKR)</th>
+                                    <th class="p-3">Badge</th>
+                                    <th class="p-3">Discount</th>
+                                    <th class="p-3 text-right">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="adminProductsTable" class="divide-y divide-gray-100">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- SUB TAB 2: ADD PRODUCT FORM -->
+                <div id="adminAddContent" class="hidden">
+                    <form id="addProductForm" onsubmit="handleSaveProduct(event)" class="max-w-3xl space-y-4">
+                        <input type="hidden" id="editProductId" value="">
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-bold text-gray-700 mb-1">Product Title *</label>
+                                <input type="text" id="prodName" required placeholder="e.g. Goldsheff Omega 3 Gold" class="w-full text-xs p-2.5 border border-gray-300 rounded-xl focus:border-gold-500 focus:outline-none">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-gray-700 mb-1">Category *</label>
+                                <select id="prodCategory" required class="w-full text-xs p-2.5 border border-gray-300 rounded-xl focus:border-gold-500 focus:outline-none">
+                                    <option value="Medicated">Medicated</option>
+                                    <option value="Organic">Organic Supplement</option>
+                                    <option value="Vitamins">Vitamins & Minerals</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <div>
+                                <label class="block text-xs font-bold text-gray-700 mb-1">Price (PKR) *</label>
+                                <input type="number" id="prodPrice" required placeholder="1800" class="w-full text-xs p-2.5 border border-gray-300 rounded-xl focus:border-gold-500 focus:outline-none">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-gray-700 mb-1">Original / Old Price (PKR)</label>
+                                <input type="number" id="prodOldPrice" placeholder="2200 (optional)" class="w-full text-xs p-2.5 border border-gray-300 rounded-xl focus:border-gold-500 focus:outline-none">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-gray-700 mb-1">Badge Type</label>
+                                <select id="prodBadge" class="w-full text-xs p-2.5 border border-gray-300 rounded-xl focus:border-gold-500 focus:outline-none">
+                                    <option value="Medicated">Medicated</option>
+                                    <option value="100% Organic">100% Organic</option>
+                                    <option value="Best Seller">Best Seller</option>
+                                    <option value="Doctor Recommended">Doctor Recommended</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold text-gray-700 mb-1">Product Description *</label>
+                            <textarea id="prodDesc" rows="3" required placeholder="Detail about formulation, dosage and health benefits..." class="w-full text-xs p-2.5 border border-gray-300 rounded-xl focus:border-gold-500 focus:outline-none"></textarea>
+                        </div>
+
+                        <div class="p-4 bg-gray-50 rounded-xl border border-dashed border-gold-500/40 space-y-3">
+                            <label class="block text-xs font-bold text-gray-800">Product Image (Choose File OR Image URL)</label>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-3 items-center">
+                                <div>
+                                    <span class="text-[11px] text-gray-500 block mb-1">Upload File (Auto Compressed):</span>
+                                    <input type="file" id="prodImageFile" accept="image/*" onchange="handleImageFileUpload(event)" class="text-xs text-gray-500 file:mr-3 file:py-1.5 file:px-3 file:rounded-full file:border-0 file:text-xs file:font-semibold file:bg-gold-500 file:text-white hover:file:bg-gold-600">
+                                </div>
+                                <div>
+                                    <span class="text-[11px] text-gray-500 block mb-1">Or Direct Web Image URL:</span>
+                                    <input type="url" id="prodImageUrl" placeholder="https://..." oninput="previewImageUrl(this.value)" class="w-full text-xs p-2 border border-gray-300 rounded-lg">
+                                </div>
+                            </div>
+
+                            <div class="mt-2 flex items-center gap-3">
+                                <span class="text-[11px] font-semibold text-gray-600">Preview:</span>
+                                <img id="imagePreview" src="https://placehold.co/100x100/FAF8F0/D4AF37?text=Goldsheff" class="w-14 h-14 object-cover rounded-lg border border-gold-500/30">
+                            </div>
+                        </div>
+
+                        <div class="flex space-x-3 pt-2">
+                            <button type="submit" class="btn-gold px-6 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider">
+                                <i class="fa-solid fa-cloud-arrow-up mr-1"></i> Save & Publish Live
+                            </button>
+                            <button type="button" onclick="setAdminSubTab('products')" class="bg-gray-200 text-gray-700 px-5 py-2.5 rounded-xl text-xs font-semibold hover:bg-gray-300">
+                                Cancel
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- SUB TAB 3: SALE COUNTDOWN MANAGER -->
+                <div id="adminSaleContent" class="hidden max-w-xl space-y-4">
+                    <div class="p-4 bg-amber-50 rounded-xl border border-amber-200">
+                        <h4 class="text-xs font-bold text-amber-900 mb-1"><i class="fa-solid fa-bullhorn text-amber-600 mr-1"></i> Live Countdown Banner Settings</h4>
+                        <p class="text-[11px] text-amber-800">Set a global countdown sale clock displayed at the top of the store to create urgency.</p>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-gray-700 mb-1">Sale Announcement Banner Text</label>
+                        <input type="text" id="adminSaleTitle" value="SPECIAL HEALTH & WELLNESS SALE IS LIVE!" class="w-full text-xs p-2.5 border border-gray-300 rounded-xl">
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-bold text-gray-700 mb-1">Set Duration (Hours)</label>
+                            <input type="number" id="adminSaleHours" value="24" min="1" max="168" class="w-full text-xs p-2.5 border border-gray-300 rounded-xl">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-gray-700 mb-1">Banner Status</label>
+                            <select id="adminSaleStatus" class="w-full text-xs p-2.5 border border-gray-300 rounded-xl">
+                                <option value="active">Active (Show on Store)</option>
+                                <option value="hidden">Hidden</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <button onclick="saveCountdownTimerSettings()" class="btn-gold px-6 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider">
+                        Update Countdown Timer
+                    </button>
+                </div>
+
+                <!-- SUB TAB 4: ORDERS HISTORY -->
+                <div id="adminOrdersContent" class="hidden">
+                    <p class="text-xs text-gray-500 mb-3">Click on any order or "View Details" to see complete customer info, email, phone, and ordered items list.</p>
+                    <div class="overflow-x-auto border border-gray-200 rounded-xl">
+                        <table class="w-full text-left text-xs text-gray-600">
+                            <thead class="bg-gray-50 text-gray-700 font-bold uppercase text-[10px] border-b border-gray-200">
+                                <tr>
+                                    <th class="p-3">Order ID & Date</th>
+                                    <th class="p-3">Customer Details</th>
+                                    <th class="p-3">Ordered Products</th>
+                                    <th class="p-3">Total Amount</th>
+                                    <th class="p-3">Status</th>
+                                    <th class="p-3 text-right">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="adminOrdersTable" class="divide-y divide-gray-100">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER WITH CONTACT INFO AND HIDDEN ADMIN TRIGGER -->
+    <footer class="bg-gradient-to-b from-gray-900 to-black text-gray-400 text-xs border-t-2 border-gold-500/40 mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="space-y-3">
+                <div class="flex items-center gap-2">
+                    <span class="font-heading font-extrabold text-gold-500 text-base tracking-widest">GOLDSHEFF</span>
+                    <span class="text-[10px] text-gray-300">NUTRACEUTICALS</span>
+                </div>
+                <p class="text-gray-400 text-[11px] leading-relaxed">
+                    Goldsheff Nutraceuticals (Pvt.) Ltd. is dedicated to high-grade scientific formulas for optimal health, immunity, and overall longevity.
+                </p>
+                <div class="pt-2 flex items-center space-x-3">
+                    <a href="https://instagram.com" target="_blank" class="w-8 h-8 rounded-full bg-gray-800 flex items-center justify-center text-gold-400 hover:bg-gold-500 hover:text-black transition-colors">
+                        <i class="fa-brands fa-instagram text-sm"></i>
+                    </a>
+                    <a href="https://wa.me/923175659994" target="_blank" class="w-8 h-8 rounded-full bg-gray-800 flex items-center justify-center text-gold-400 hover:bg-green-600 hover:text-white transition-colors">
+                        <i class="fa-brands fa-whatsapp text-sm"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="space-y-2">
+                <h4 class="font-heading text-white text-sm font-bold tracking-wider text-gold-400 mb-3">Customer Support</h4>
+                <div class="flex items-center gap-2">
+                    <i class="fa-solid fa-phone text-gold-500 w-4"></i>
+                    <a href="tel:03175659994" class="hover:text-gold-400 transition-colors">0317 5659994</a>
+                </div>
+                <div class="flex items-center gap-2">
+                    <i class="fa-solid fa-envelope text-gold-500 w-4"></i>
+                    <a href="mailto:harismunawar021@gmail.com" class="hover:text-gold-400 transition-colors">harismunawar021@gmail.com</a>
+                </div>
+                <div class="flex items-center gap-2">
+                    <i class="fa-solid fa-location-dot text-gold-500 w-4"></i>
+                    <span>Pakistan Corporate Head Office</span>
+                </div>
+            </div>
+
+            <div class="space-y-2">
+                <h4 class="font-heading text-white text-sm font-bold tracking-wider text-gold-400 mb-3">Our Quality Promise</h4>
+                <ul class="space-y-1.5 text-[11px] text-gray-400">
+                    <li class="flex items-center gap-2"><i class="fa-solid fa-check text-gold-500"></i> DRAP Compliant Quality Standards</li>
+                    <li class="flex items-center gap-2"><i class="fa-solid fa-check text-gold-500"></i> Free Delivery on Orders Over PKR 1,500</li>
+                    <li class="flex items-center gap-2"><i class="fa-solid fa-check text-gold-500"></i> Cash On Delivery All Over Pakistan</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="border-t border-gray-800 bg-black py-4 text-center text-gray-500 text-[11px]">
+            <p>
+                © 2026 <span id="adminSecretTrigger" ondblclick="triggerSecretAdminPasscode()" class="cursor-pointer hover:text-gold-400 transition-colors" title="Double-click for admin portal">Goldsheff Nutraceuticals (Pvt.) Ltd.</span> All Rights Reserved.
+            </p>
+        </div>
+    </footer>
+
+    <!-- SHOPPING CART DRAWER -->
+    <div id="cartDrawer" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs hidden transition-opacity">
+        <div class="absolute right-0 top-0 bottom-0 w-full max-w-md bg-white shadow-2xl flex flex-col justify-between">
+            <div class="p-4 border-b border-gray-200 flex items-center justify-between bg-gray-50">
+                <div class="flex items-center gap-2">
+                    <i class="fa-solid fa-bag-shopping text-gold-600"></i>
+                    <h3 class="font-heading font-bold text-gray-800">Your Shopping Cart</h3>
+                </div>
+                <button onclick="toggleCartDrawer()" class="text-gray-400 hover:text-gray-600 p-1">
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
+            </div>
+
+            <div id="cartItemsContainer" class="p-4 flex-1 overflow-y-auto space-y-3">
+            </div>
+
+            <div class="p-4 border-t border-gray-200 bg-gray-50 space-y-3">
+                <div class="flex gap-2">
+                    <input type="text" id="promoCodeInput" placeholder="Enter voucher code" class="flex-1 text-xs p-2 border border-gray-300 rounded-lg uppercase">
+                    <button onclick="applyPromoCode()" class="btn-silver px-3 py-2 rounded-lg text-xs font-bold">Apply</button>
+                </div>
+                <div id="promoMsg" class="text-[11px] font-semibold hidden"></div>
+
+                <div class="space-y-1 text-xs text-gray-600 pt-2 border-t border-gray-200">
+                    <div class="flex justify-between">
+                        <span>Subtotal:</span>
+                        <span id="cartSubtotal">PKR 0</span>
+                    </div>
+                    <div id="discountRow" class="flex justify-between text-green-600 font-semibold hidden">
+                        <span>Discount Applied:</span>
+                        <span id="cartDiscount">-PKR 0</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span>Shipping Fee:</span>
+                        <span id="cartShipping">PKR 0</span>
+                    </div>
+                    <div class="flex justify-between text-sm font-bold text-gray-900 pt-2 border-t border-gray-300">
+                        <span>Grand Total:</span>
+                        <span id="cartGrandTotal" class="text-gold-700">PKR 0</span>
+                    </div>
+                </div>
+
+                <button onclick="openCheckoutModal()" class="w-full btn-gold py-3 rounded-xl text-xs font-bold uppercase tracking-wider">
+                    Proceed To Checkout <i class="fa-solid fa-arrow-right ml-1"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- CHECKOUT MODAL -->
+    <div id="checkoutModal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-lg w-full p-6 shadow-2xl relative max-h-[90vh] overflow-y-auto">
+            <button onclick="toggleModal('checkoutModal')" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+
+            <h3 class="font-heading text-lg font-bold text-gray-800 mb-1">Complete Order Details</h3>
+            <p class="text-xs text-gray-500 mb-4">Cash On Delivery available across Pakistan.</p>
+
+            <form onsubmit="handlePlaceOrder(event)" class="space-y-3">
+                <div>
+                    <label class="block text-xs font-bold text-gray-700 mb-1">Full Name *</label>
+                    <input type="text" id="custName" required placeholder="e.g. Muhammad Ali" class="w-full text-xs p-2.5 border border-gray-300 rounded-xl">
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                    <div>
+                        <label class="block text-xs font-bold text-gray-700 mb-1">Mobile Phone *</label>
+                        <input type="tel" id="custPhone" required placeholder="03XXXXXXXXX" class="w-full text-xs p-2.5 border border-gray-300 rounded-xl">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-gray-700 mb-1">Email Address *</label>
+                        <input type="email" id="custEmail" required placeholder="name@domain.com" class="w-full text-xs p-2.5 border border-gray-300 rounded-xl">
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-gray-700 mb-1">Complete Delivery Address *</label>
+                    <textarea id="custAddress" rows="2" required placeholder="House number, Street, Area, City..." class="w-full text-xs p-2.5 border border-gray-300 rounded-xl"></textarea>
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-gray-700 mb-1">Payment Method</label>
+                    <div class="p-3 bg-gold-50/50 rounded-xl border border-gold-500/30 flex items-center gap-2 text-xs font-semibold text-gray-800">
+                        <i class="fa-solid fa-money-bill-wave text-green-600"></i> Cash On Delivery (COD)
+                    </div>
+                </div>
+
+                <div class="pt-3">
+                    <button type="submit" class="w-full btn-gold py-3 rounded-xl text-xs font-bold uppercase tracking-wider">
+                        Confirm Order Now
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- ORDER COMPLETE DETAILS MODAL -->
+    <div id="orderDetailsModal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-lg w-full p-6 shadow-2xl relative max-h-[90vh] overflow-y-auto">
+            <button onclick="toggleModal('orderDetailsModal')" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+            <h3 class="font-heading text-lg font-bold text-gray-800 mb-2 flex items-center gap-2">
+                <i class="fa-solid fa-receipt text-gold-600"></i> Order Complete Details
+            </h3>
+            <div id="orderDetailsContent" class="space-y-4 text-xs text-gray-700 mt-2">
+                <!-- Dynamically filled order details -->
+            </div>
+        </div>
+    </div>
+
+    <!-- SECRET ADMIN PASSCODE MODAL -->
+    <div id="adminPassModal" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-xs hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-sm w-full p-6 shadow-2xl relative text-center">
+            <div class="w-12 h-12 bg-gold-500/10 text-gold-600 rounded-full flex items-center justify-center mx-auto mb-3 text-xl">
+                <i class="fa-solid fa-shield-halved"></i>
+            </div>
+            <h3 class="font-heading font-bold text-gray-800 text-base mb-1">Restricted Access</h3>
+            <p class="text-xs text-gray-500 mb-4">Enter secret admin passcode to continue:</p>
+
+            <form onsubmit="verifyAdminPasscode(event)" class="space-y-3">
+                <input type="password" id="adminPassInput" placeholder="Enter Secret Code" class="w-full text-xs p-3 text-center border border-gray-300 rounded-xl focus:border-gold-500 focus:outline-none font-mono">
+                <div class="flex space-x-2">
+                    <button type="button" onclick="toggleModal('adminPassModal')" class="flex-1 bg-gray-200 text-gray-700 py-2.5 rounded-xl text-xs font-semibold">Cancel</button>
+                    <button type="submit" class="flex-1 btn-gold py-2.5 rounded-xl text-xs font-bold">Verify</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- ACCOUNT MODAL -->
+    <div id="accountModal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-md w-full p-6 shadow-2xl relative">
+            <button onclick="toggleModal('accountModal')" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+
+            <div id="loginStateView">
+                <h3 class="font-heading font-bold text-gray-800 text-base mb-3">Customer Portal</h3>
+                <form onsubmit="handleUserLogin(event)" class="space-y-3">
+                    <div>
+                        <label class="block text-xs font-bold text-gray-700 mb-1">Email</label>
+                        <input type="email" id="userLoginEmail" required class="w-full text-xs p-2.5 border border-gray-300 rounded-xl">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-gray-700 mb-1">Password</label>
+                        <input type="password" id="userLoginPass" required class="w-full text-xs p-2.5 border border-gray-300 rounded-xl">
+                    </div>
+                    <button type="submit" class="w-full btn-gold py-2.5 rounded-xl text-xs font-bold">Login / Account Sync</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- CUSTOM TOAST NOTIFICATION CONTAINER -->
+    <div id="toastContainer" class="fixed bottom-5 right-5 z-50 space-y-2 pointer-events-none"></div>
+
+    <!-- FIREBASE & APPLICATION ENGINE -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+        import { 
+            getFirestore, collection, doc, setDoc, deleteDoc, onSnapshot 
+        } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+
+        // REAL FIREBASE CONFIGURATION INTEGRATED
+        const firebaseConfig = {
+            apiKey: "AIzaSyB6iT6E4qIXPTgUXO6wxby5RyIMVTaEDU",
+            authDomain: "goldseff.firebaseapp.com",
+            projectId: "goldseff",
+            storageBucket: "goldseff.firebasestorage.app",
+            messagingSenderId: "178776854760",
+            appId: "1:178776854760:web:d7a8bcfb495998886d395d",
+            measurementId: "G-FSEP2BSM6T"
+        };
+
+        let db = null;
+        let isFirebaseInitialized = false;
+
+        try {
+            const app = initializeApp(firebaseConfig);
+            db = getFirestore(app);
+            isFirebaseInitialized = true;
+        } catch (e) {
+            console.warn("Firebase initialization failed.", e);
+        }
+
+        // GLOBAL APP STATE
+        window.state = {
+            products: JSON.parse(localStorage.getItem('goldsheff_products')) || [],
+            cart: JSON.parse(localStorage.getItem('goldsheff_cart')) || [],
+            orders: JSON.parse(localStorage.getItem('goldsheff_orders')) || [],
+            isAdminLoggedIn: sessionStorage.getItem('goldsheff_admin_auth') === 'true',
+            appliedPromo: null,
+            activeCategory: 'all',
+            searchQuery: '',
+            uploadedImageBase64: '',
+            saleCountdown: JSON.parse(localStorage.getItem('goldsheff_sale_timer')) || {
+                title: 'SPECIAL HEALTH & WELLNESS SALE IS LIVE!',
+                endTime: Date.now() + 24 * 60 * 60 * 1000,
+                status: 'active'
+            }
+        };
+
+        // REAL-TIME FIRESTORE LISTENER
+        function setupLiveRealtimeSync() {
+            if (!isFirebaseInitialized || !db) {
+                renderStoreProducts();
+                renderAdminProductsTable();
+                renderAdminOrders();
+                return;
+            }
+
+            onSnapshot(collection(db, "products"), (snapshot) => {
+                const liveProducts = [];
+                snapshot.forEach((docSnap) => {
+                    liveProducts.push({ id: docSnap.id, ...docSnap.data() });
+                });
+                window.state.products = liveProducts;
+                saveState('goldsheff_products', liveProducts);
+                renderStoreProducts();
+                renderAdminProductsTable();
+            }, (err) => {
+                console.error("Firestore Products Listener Error:", err);
+            });
+
+            onSnapshot(collection(db, "orders"), (snapshot) => {
+                const liveOrders = [];
+                snapshot.forEach((docSnap) => {
+                    liveOrders.push({ id: docSnap.id, ...docSnap.data() });
+                });
+                window.state.orders = liveOrders;
+                saveState('goldsheff_orders', liveOrders);
+                renderAdminOrders();
+            }, (err) => {
+                console.error("Firestore Orders Listener Error:", err);
+            });
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            setupLiveRealtimeSync();
+            updateCartUI();
+            initCountdownTimer();
+            setupKeyboardShortcuts();
+        });
+
+        window.saveState = function(key, data) {
+            try {
+                localStorage.setItem(key, JSON.stringify(data));
+            } catch (e) {
+                console.error("Storage Error:", e);
+                showToast("Storage limit exceeded.", "error");
+            }
+        };
+
+        window.renderStoreProducts = function() {
+            const grid = document.getElementById('productGrid');
+            const emptyState = document.getElementById('emptyState');
+            if (!grid) return;
+            
+            let filtered = window.state.products.filter(p => {
+                const matchesCat = window.state.activeCategory === 'all' || p.category === window.state.activeCategory;
+                const matchesSearch = (p.name || '').toLowerCase().includes(window.state.searchQuery.toLowerCase()) || 
+                                      (p.description || '').toLowerCase().includes(window.state.searchQuery.toLowerCase());
+                return matchesCat && matchesSearch;
+            });
+
+            document.getElementById('productCount').textContent = filtered.length;
+
+            if (filtered.length === 0) {
+                grid.innerHTML = '';
+                emptyState.classList.remove('hidden');
+                return;
+            }
+
+            emptyState.classList.add('hidden');
+
+            grid.innerHTML = filtered.map(prod => `
+                <div class="glass-card rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col justify-between group border border-gold-500/20">
+                    <div class="relative overflow-hidden bg-gray-50 h-52">
+                        <img src="${prod.image}" alt="${prod.name}" 
+                             onerror="this.onerror=null;this.src='https://placehold.co/400x300/FAF8F0/D4AF37?text=Goldsheff';" 
+                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        
+                        <div class="absolute top-3 left-3 flex flex-col gap-1">
+                            <span class="bg-gray-900/90 text-gold-400 text-[10px] font-bold px-2.5 py-1 rounded-full uppercase border border-gold-500/30">
+                                ${prod.badge || 'Supplement'}
+                            </span>
+                            ${prod.oldPrice ? `<span class="bg-red-600 text-white text-[9px] font-bold px-2 py-0.5 rounded-full uppercase">SALE</span>` : ''}
+                        </div>
+                    </div>
+
+                    <div class="p-5 flex-1 flex flex-col justify-between space-y-3">
+                        <div>
+                            <span class="text-[10px] uppercase font-bold text-gold-600 tracking-wider">${prod.category}</span>
+                            <h3 class="font-heading font-bold text-gray-900 text-sm mt-0.5 group-hover:text-gold-600 transition-colors">${prod.name}</h3>
+                            <p class="text-xs text-gray-500 mt-1 line-clamp-2 leading-relaxed">${prod.description}</p>
+                        </div>
+
+                        <div class="pt-3 border-t border-gray-100 flex items-center justify-between">
+                            <div>
+                                <div class="text-base font-extrabold text-gray-900">
+                                    PKR ${Number(prod.price).toLocaleString()}
+                                </div>
+                                ${prod.oldPrice ? `<div class="text-xs text-gray-400 line-through">PKR ${Number(prod.oldPrice).toLocaleString()}</div>` : ''}
+                            </div>
+
+                            <button onclick="addToCart('${prod.id}')" class="btn-gold px-3.5 py-2 rounded-xl text-xs flex items-center gap-1.5">
+                                <i class="fa-solid fa-cart-plus text-xs"></i>
+                                <span>Add</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        };
+
+        window.handleImageFileUpload = function(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const img = new Image();
+                img.onload = function() {
+                    const canvas = document.createElement('canvas');
+                    const ctx = canvas.getContext('2d');
+                    
+                    const maxDim = 500;
+                    let width = img.width;
+                    let height = img.height;
+
+                    if (width > height) {
+                        if (width > maxDim) {
+                            height *= maxDim / width;
+                            width = maxDim;
+                        }
+                    } else {
+                        if (height > maxDim) {
+                            width *= maxDim / height;
+                            height = maxDim;
+                        }
+                    }
+
+                    canvas.width = width;
+                    canvas.height = height;
+                    ctx.drawImage(img, 0, 0, width, height);
+
+                    window.state.uploadedImageBase64 = canvas.toDataURL('image/jpeg', 0.7);
+                    document.getElementById('imagePreview').src = window.state.uploadedImageBase64;
+                };
+                img.src = e.target.result;
+            };
+            reader.readAsDataURL(file);
+        };
+
+        window.previewImageUrl = function(url) {
+            if (url) {
+                window.state.uploadedImageBase64 = '';
+                document.getElementById('imagePreview').src = url;
+            }
+        };
+
+        window.handleSaveProduct = async function(e) {
+            e.preventDefault();
+            
+            const editId = document.getElementById('editProductId').value;
+            const name = document.getElementById('prodName').value.trim();
+            const category = document.getElementById('prodCategory').value;
+            const price = parseFloat(document.getElementById('prodPrice').value);
+            const oldPriceVal = document.getElementById('prodOldPrice').value;
+            const oldPrice = oldPriceVal ? parseFloat(oldPriceVal) : null;
+            const badge = document.getElementById('prodBadge').value;
+            const description = document.getElementById('prodDesc').value.trim();
+            
+            const urlInput = document.getElementById('prodImageUrl').value.trim();
+            const finalImage = window.state.uploadedImageBase64 || urlInput || 'https://placehold.co/400x300/FAF8F0/D4AF37?text=Goldsheff';
+
+            const prodId = editId || ('GS-' + Date.now());
+            const productData = {
+                name, category, price, oldPrice, badge, description, image: finalImage, updatedAt: Date.now()
+            };
+
+            if (isFirebaseInitialized && db) {
+                try {
+                    await setDoc(doc(db, "products", prodId), productData, { merge: true });
+                    showToast("Product published live on Cloud Database!", "success");
+                } catch (err) {
+                    console.error("Firebase Write Error:", err);
+                    showToast("Failed to write to cloud database.", "error");
+                }
+            } else {
+                if (editId) {
+                    const idx = window.state.products.findIndex(p => p.id === editId);
+                    if (idx !== -1) window.state.products[idx] = { id: editId, ...productData };
+                } else {
+                    window.state.products.unshift({ id: prodId, ...productData });
+                }
+                saveState('goldsheff_products', window.state.products);
+                renderStoreProducts();
+                renderAdminProductsTable();
+                showToast("Product saved locally!", "success");
+            }
+
+            document.getElementById('addProductForm').reset();
+            document.getElementById('editProductId').value = '';
+            document.getElementById('prodImageFile').value = '';
+            window.state.uploadedImageBase64 = '';
+            document.getElementById('imagePreview').src = 'https://placehold.co/100x100/FAF8F0/D4AF37?text=Goldsheff';
+            
+            setAdminSubTab('products');
+        };
+
+        window.deleteProduct = async function(id) {
+            if (confirm("Are you sure you want to delete this product from live store?")) {
+                if (isFirebaseInitialized && db) {
+                    try {
+                        await deleteDoc(doc(db, "products", id));
+                        showToast("Product deleted live from cloud database.", "info");
+                    } catch (err) {
+                        console.error("Firebase Delete Error:", err);
+                    }
+                } else {
+                    window.state.products = window.state.products.filter(p => p.id !== id);
+                    saveState('goldsheff_products', window.state.products);
+                    renderStoreProducts();
+                    renderAdminProductsTable();
+                    showToast("Product deleted.", "info");
+                }
+            }
+        };
+
+        window.editProduct = function(id) {
+            const prod = window.state.products.find(p => p.id === id);
+            if (!prod) return;
+
+            document.getElementById('editProductId').value = prod.id;
+            document.getElementById('prodName').value = prod.name;
+            document.getElementById('prodCategory').value = prod.category;
+            document.getElementById('prodPrice').value = prod.price;
+            document.getElementById('prodOldPrice').value = prod.oldPrice || '';
+            document.getElementById('prodBadge').value = prod.badge;
+            document.getElementById('prodDesc').value = prod.description;
+            document.getElementById('prodImageUrl').value = (prod.image && prod.image.startsWith('http')) ? prod.image : '';
+            document.getElementById('imagePreview').src = prod.image;
+
+            setAdminSubTab('add');
+        };
+
+        window.renderAdminProductsTable = function() {
+            const tbody = document.getElementById('adminProductsTable');
+            if (!tbody) return;
+
+            if (window.state.products.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="7" class="p-6 text-center text-gray-400">No products added yet. Click "+ Add New Product" to create one.</td></tr>`;
+                return;
+            }
+
+            tbody.innerHTML = window.state.products.map(p => `
+                <tr class="hover:bg-gray-50">
+                    <td class="p-3">
+                        <img src="${p.image}" class="w-10 h-10 object-cover rounded-lg border border-gray-200" onerror="this.src='https://placehold.co/100x100/FAF8F0/D4AF37?text=Goldsheff'">
+                    </td>
+                    <td class="p-3 font-bold text-gray-900">${p.name}</td>
+                    <td class="p-3"><span class="bg-gray-100 text-gray-700 px-2 py-0.5 rounded-full text-[10px]">${p.category}</span></td>
+                    <td class="p-3 font-semibold">PKR ${p.price}</td>
+                    <td class="p-3"><span class="bg-gold-500/10 text-gold-700 px-2 py-0.5 rounded text-[10px] font-bold">${p.badge}</span></td>
+                    <td class="p-3 text-gray-400">${p.oldPrice ? `PKR ${p.oldPrice}` : '-'}</td>
+                    <td class="p-3 text-right space-x-2">
+                        <button onclick="editProduct('${p.id}')" class="text-blue-600 hover:text-blue-800 p-1"><i class="fa-solid fa-pen-to-square"></i></button>
+                        <button onclick="deleteProduct('${p.id}')" class="text-red-600 hover:text-red-800 p-1"><i class="fa-solid fa-trash"></i></button>
+                    </td>
+                </tr>
+            `).join('');
+        };
+
+        window.addToCart = function(productId) {
+            const product = window.state.products.find(p => p.id === productId);
+            if (!product) return;
+
+            const existing = window.state.cart.find(item => item.id === productId);
+            if (existing) {
+                existing.qty += 1;
+            } else {
+                window.state.cart.push({ ...product, qty: 1 });
+            }
+
+            saveState('goldsheff_cart', window.state.cart);
+            updateCartUI();
+            showToast(`${product.name} added to cart!`, "success");
+        };
+
+        window.updateCartQty = function(id, delta) {
+            const item = window.state.cart.find(i => i.id === id);
+            if (!item) return;
+
+            item.qty += delta;
+            if (item.qty <= 0) {
+                window.state.cart = window.state.cart.filter(i => i.id !== id);
+            }
+
+            saveState('goldsheff_cart', window.state.cart);
+            updateCartUI();
+        };
+
+        window.updateCartUI = function() {
+            const container = document.getElementById('cartItemsContainer');
+            const cartCountBadge = document.getElementById('cartCountBadge');
+            
+            const totalItems = window.state.cart.reduce((sum, item) => sum + item.qty, 0);
+            if (cartCountBadge) cartCountBadge.textContent = totalItems;
+
+            if (!container) return;
+
+            if (window.state.cart.length === 0) {
+                container.innerHTML = `
+                    <div class="text-center py-12 text-gray-400">
+                        <i class="fa-solid fa-cart-flatbed text-4xl mb-3"></i>
+                        <p class="text-xs">Your shopping cart is empty.</p>
+                    </div>
+                `;
+            } else {
+                container.innerHTML = window.state.cart.map(item => `
+                    <div class="flex items-center justify-between p-3 bg-white rounded-xl border border-gray-100 shadow-xs">
+                        <img src="${item.image}" class="w-12 h-12 object-cover rounded-lg border" onerror="this.src='https://placehold.co/100x100/FAF8F0/D4AF37?text=Goldsheff'">
+                        <div class="flex-1 px-3">
+                            <h4 class="text-xs font-bold text-gray-800 line-clamp-1">${item.name}</h4>
+                            <div class="text-xs text-gold-700 font-semibold mt-0.5">PKR ${item.price}</div>
+                        </div>
+                        <div class="flex items-center space-x-2 bg-gray-100 rounded-lg p-1">
+                            <button onclick="updateCartQty('${item.id}', -1)" class="w-5 h-5 text-xs flex items-center justify-center bg-white rounded shadow-xs font-bold">-</button>
+                            <span class="text-xs font-bold px-1">${item.qty}</span>
+                            <button onclick="updateCartQty('${item.id}', 1)" class="w-5 h-5 text-xs flex items-center justify-center bg-white rounded shadow-xs font-bold">+</button>
+                        </div>
+                    </div>
+                `).join('');
+            }
+
+            const subtotal = window.state.cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+            let discount = 0;
+
+            if (window.state.appliedPromo === 'FIRSTORDER') {
+                discount = subtotal * 0.15;
+            } else if (window.state.appliedPromo === 'GOLDSHEFF021') {
+                discount = subtotal * 0.25;
+            }
+
+            const shipping = (subtotal - discount >= 1500 || subtotal === 0) ? 0 : 200;
+            const grandTotal = Math.max(0, subtotal - discount) + shipping;
+
+            document.getElementById('cartSubtotal').textContent = `PKR ${subtotal.toLocaleString()}`;
+            document.getElementById('cartShipping').textContent = shipping === 0 ? 'FREE' : `PKR ${shipping}`;
+            document.getElementById('cartGrandTotal').textContent = `PKR ${grandTotal.toLocaleString()}`;
+
+            const discountRow = document.getElementById('discountRow');
+            if (discount > 0) {
+                discountRow.classList.remove('hidden');
+                document.getElementById('cartDiscount').textContent = `-PKR ${discount.toLocaleString()}`;
+            } else {
+                discountRow.classList.add('hidden');
+            }
+        };
+
+        window.applyPromoCode = function() {
+            const input = document.getElementById('promoCodeInput').value.trim().toUpperCase();
+            const msg = document.getElementById('promoMsg');
+
+            if (input === 'FIRSTORDER') {
+                window.state.appliedPromo = 'FIRSTORDER';
+                msg.textContent = 'Special promo applied! 15% discount active.';
+                msg.className = 'text-[11px] font-semibold text-green-600 block';
+            } else if (input === 'GOLDSHEFF021') {
+                window.state.appliedPromo = 'GOLDSHEFF021';
+                msg.textContent = 'VIP Promo applied! 25% discount active.';
+                msg.className = 'text-[11px] font-semibold text-green-600 block';
+            } else {
+                window.state.appliedPromo = null;
+                msg.textContent = 'Invalid promo voucher code.';
+                msg.className = 'text-[11px] font-semibold text-red-600 block';
+            }
+
+            updateCartUI();
+        };
+
+        window.handlePlaceOrder = async function(e) {
+            e.preventDefault();
+            if (window.state.cart.length === 0) {
+                showToast("Your cart is empty!", "error");
+                return;
+            }
+
+            const name = document.getElementById('custName').value.trim();
+            const phone = document.getElementById('custPhone').value.trim();
+            const email = document.getElementById('custEmail').value.trim();
+            const address = document.getElementById('custAddress').value.trim();
+
+            const subtotal = window.state.cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+            let discount = 0;
+            if (window.state.appliedPromo === 'FIRSTORDER') discount = subtotal * 0.15;
+            if (window.state.appliedPromo === 'GOLDSHEFF021') discount = subtotal * 0.25;
+
+            const shipping = (subtotal - discount >= 1500) ? 0 : 200;
+            const total = Math.max(0, subtotal - discount) + shipping;
+
+            const orderId = 'ORD-' + Math.floor(100000 + Math.random() * 900000);
+            const orderData = {
+                date: new Date().toLocaleString(),
+                customer: { name, phone, email, address },
+                items: [...window.state.cart],
+                total: total,
+                status: 'Pending',
+                createdAt: Date.now()
+            };
+
+            if (isFirebaseInitialized && db) {
+                try {
+                    await setDoc(doc(db, "orders", orderId), orderData);
+                } catch (err) {
+                    console.error("Firebase Order Save Error:", err);
+                }
+            } else {
+                window.state.orders.unshift({ id: orderId, ...orderData });
+                saveState('goldsheff_orders', window.state.orders);
+            }
+
+            window.state.cart = [];
+            saveState('goldsheff_cart', window.state.cart);
+            updateCartUI();
+
+            toggleModal('checkoutModal');
+            toggleCartDrawer();
+
+            showToast(`Order #${orderId} placed successfully!`, "success", 6000);
+            renderAdminOrders();
+        };
+
+        // VIEW COMPLETE ORDER DETAILS MODAL
+        window.viewOrderDetails = function(orderId) {
+            const ord = window.state.orders.find(o => o.id === orderId);
+            if (!ord) return;
+
+            const content = document.getElementById('orderDetailsContent');
+            content.innerHTML = `
+                <div class="p-3 bg-gray-50 rounded-xl space-y-1 border border-gold-500/20">
+                    <div class="flex justify-between font-bold text-gray-900">
+                        <span>Order ID: ${ord.id}</span>
+                        <span class="text-gold-700 uppercase">${ord.status}</span>
+                    </div>
+                    <div class="text-[11px] text-gray-500">Date & Time: ${ord.date || 'Recent'}</div>
+                </div>
+
+                <div class="space-y-1.5 border-t border-b border-gray-200 py-3">
+                    <h4 class="font-bold text-gray-900 mb-1 text-xs uppercase text-gold-600">Customer Contact & Address:</h4>
+                    <div class="grid grid-cols-2 gap-2">
+                        <div><strong>Name:</strong> ${ord.customer ? ord.customer.name : 'N/A'}</div>
+                        <div><strong>Phone:</strong> ${ord.customer ? ord.customer.phone : 'N/A'}</div>
+                    </div>
+                    <div><strong>Email:</strong> ${ord.customer ? ord.customer.email : 'N/A'}</div>
+                    <div><strong>Delivery Address:</strong> ${ord.customer ? ord.customer.address : 'N/A'}</div>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-gray-900 mb-2 text-xs uppercase text-gold-600">Ordered Products List:</h4>
+                    <div class="space-y-2 max-h-48 overflow-y-auto pr-1">
+                        ${(ord.items || []).map(item => `
+                            <div class="flex items-center justify-between bg-gray-50 p-2 rounded-lg border border-gray-200">
+                                <div class="flex items-center gap-2">
+                                    <img src="${item.image}" class="w-10 h-10 object-cover rounded border" onerror="this.src='https://placehold.co/50x50/FAF8F0/D4AF37?text=GS'">
+                                    <div>
+                                        <div class="font-bold text-gray-900">${item.name}</div>
+                                        <div class="text-[10px] text-gray-500">Qty: ${item.qty} × PKR ${Number(item.price).toLocaleString()}</div>
+                                    </div>
+                                </div>
+                                <div class="font-bold text-gray-800">PKR ${(item.qty * item.price).toLocaleString()}</div>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+
+                <div class="pt-3 border-t border-gray-200 flex justify-between font-extrabold text-sm text-gray-900">
+                    <span>Grand Total Amount:</span>
+                    <span class="text-gold-700">PKR ${Number(ord.total || 0).toLocaleString()}</span>
+                </div>
+            `;
+            toggleModal('orderDetailsModal');
+        };
+
+        // RENDER ADMIN ORDERS LIST WITH CLICKABLE INSPECTION
+        window.renderAdminOrders = function() {
+            const tbody = document.getElementById('adminOrdersTable');
+            const countEl = document.getElementById('adminOrderCount');
+            if (countEl) countEl.textContent = window.state.orders.length;
+
+            if (!tbody) return;
+
+            if (window.state.orders.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="6" class="p-6 text-center text-gray-400">No customer orders placed yet.</td></tr>`;
+                return;
+            }
+
+            tbody.innerHTML = window.state.orders.map(o => {
+                const firstItem = (o.items && o.items[0]) ? o.items[0] : null;
+                const totalItemsCount = (o.items || []).reduce((sum, i) => sum + i.qty, 0);
+
+                return `
+                    <tr class="hover:bg-gold-50/40 cursor-pointer transition-colors align-top" onclick="viewOrderDetails('${o.id}')">
+                        <td class="p-3">
+                            <div class="font-bold text-gold-700 hover:underline">${o.id}</div>
+                            <div class="text-[10px] text-gray-400 mt-0.5">${o.date || 'Recent'}</div>
+                        </td>
+                        <td class="p-3">
+                            <div class="font-bold text-gray-900">${o.customer ? o.customer.name : 'N/A'}</div>
+                            <div class="text-[11px] text-gray-600"><i class="fa-solid fa-phone text-gold-600 mr-1"></i>${o.customer ? o.customer.phone : 'N/A'}</div>
+                            <div class="text-[10px] text-gray-500 mt-0.5">${o.customer ? o.customer.email : 'N/A'}</div>
+                        </td>
+                        <td class="p-3">
+                            <div class="flex items-center gap-2">
+                                ${firstItem ? `<img src="${firstItem.image}" class="w-8 h-8 object-cover rounded border">` : ''}
+                                <div>
+                                    <span class="font-bold text-gray-800">${firstItem ? firstItem.name : 'Product'}</span>
+                                    <span class="text-gray-500 text-[10px] block">${totalItemsCount} item(s) total (Click to view all)</span>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="p-3 font-extrabold text-gold-700 whitespace-nowrap">
+                            PKR ${Number(o.total || 0).toLocaleString()}
+                        </td>
+                        <td class="p-3 whitespace-nowrap" onclick="event.stopPropagation()">
+                            <span class="bg-amber-100 text-amber-800 px-2.5 py-1 rounded-full text-[10px] font-bold">${o.status || 'Pending'}</span>
+                        </td>
+                        <td class="p-3 text-right whitespace-nowrap space-x-1" onclick="event.stopPropagation()">
+                            <button onclick="viewOrderDetails('${o.id}')" class="bg-blue-50 text-blue-600 px-2.5 py-1.5 rounded-lg text-[10px] font-bold hover:bg-blue-100 transition-colors" title="View Full Details">
+                                <i class="fa-solid fa-eye"></i> Details
+                            </button>
+                            <button onclick="markOrderCompleted('${o.id}')" class="bg-green-100 text-green-700 px-2.5 py-1.5 rounded-lg text-[10px] hover:bg-green-200 transition-colors font-bold">
+                                <i class="fa-solid fa-check"></i>
+                            </button>
+                        </td>
+                    </tr>
+                `;
+            }).join('');
+        };
+
+        window.markOrderCompleted = async function(orderId) {
+            const ord = window.state.orders.find(o => o.id === orderId);
+            if (ord) {
+                ord.status = 'Completed';
+                if (isFirebaseInitialized && db) {
+                    try {
+                        await setDoc(doc(db, "orders", orderId), { status: 'Completed' }, { merge: true });
+                    } catch (err) {
+                        console.error("Firebase Order Status Error:", err);
+                    }
+                } else {
+                    saveState('goldsheff_orders', window.state.orders);
+                    renderAdminOrders();
+                }
+                showToast(`Order ${orderId} marked completed.`, "info");
+            }
+        };
+
+        window.setupKeyboardShortcuts = function() {
+            document.addEventListener('keydown', (e) => {
+                if (e.ctrlKey && e.shiftKey && (e.key === 'A' || e.key === 'a')) {
+                    e.preventDefault();
+                    openAdminWithCheck();
+                }
+            });
+        };
+
+        window.triggerSecretAdminPasscode = function() {
+            openAdminWithCheck();
+        };
+
+        window.openAdminWithCheck = function() {
+            if (window.state.isAdminLoggedIn) {
+                switchTab('admin');
+            } else {
+                toggleModal('adminPassModal');
+            }
+        };
+
+        window.verifyAdminPasscode = function(e) {
+            e.preventDefault();
+            const pass = document.getElementById('adminPassInput').value;
+            
+            if (pass === 'GoldSheff021') {
+                window.state.isAdminLoggedIn = true;
+                sessionStorage.setItem('goldsheff_admin_auth', 'true');
+                toggleModal('adminPassModal');
+                switchTab('admin');
+                renderAdminProductsTable();
+                showToast("Authenticated as Goldsheff Admin!", "success");
+            } else {
+                showToast("Invalid passcode authorization code.", "error");
+            }
+        };
+
+        window.logoutAdmin = function() {
+            window.state.isAdminLoggedIn = false;
+            sessionStorage.removeItem('goldsheff_admin_auth');
+            switchTab('store');
+            showToast("Logged out from admin session.", "info");
+        };
+
+        window.initCountdownTimer = function() {
+            const timerBar = document.getElementById('globalSaleCountdownBar');
+            if (window.state.saleCountdown.status === 'active') {
+                timerBar.classList.remove('hidden');
+                document.getElementById('saleTitleText').textContent = window.state.saleCountdown.title;
+                
+                setInterval(() => {
+                    const now = Date.now();
+                    const diff = window.state.saleCountdown.endTime - now;
+
+                    if (diff <= 0) {
+                        document.getElementById('cdHours').textContent = '00';
+                        document.getElementById('cdMins').textContent = '00';
+                        document.getElementById('cdSecs').textContent = '00';
+                        return;
+                    }
+
+                    const hours = Math.floor(diff / (1000 * 60 * 60));
+                    const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                    const secs = Math.floor((diff % (1000 * 60)) / 1000);
+
+                    document.getElementById('cdHours').textContent = String(hours).padStart(2, '0');
+                    document.getElementById('cdMins').textContent = String(mins).padStart(2, '0');
+                    document.getElementById('cdSecs').textContent = String(secs).padStart(2, '0');
+                }, 1000);
+            } else {
+                timerBar.classList.add('hidden');
+            }
+        };
+
+        window.saveCountdownTimerSettings = function() {
+            const title = document.getElementById('adminSaleTitle').value.trim();
+            const hours = parseInt(document.getElementById('adminSaleHours').value);
+            const status = document.getElementById('adminSaleStatus').value;
+
+            window.state.saleCountdown = {
+                title: title || 'SPECIAL HEALTH & WELLNESS SALE IS LIVE!',
+                endTime: Date.now() + (hours * 60 * 60 * 1000),
+                status: status
+            };
+
+            saveState('goldsheff_sale_timer', window.state.saleCountdown);
+            initCountdownTimer();
+            showToast("Countdown sale timer updated!", "success");
+        };
+
+        window.switchTab = function(tab) {
+            if (tab === 'store') {
+                document.getElementById('storeTab').classList.remove('hidden');
+                document.getElementById('adminTab').classList.add('hidden');
+                renderStoreProducts();
+            } else if (tab === 'admin') {
+                document.getElementById('storeTab').classList.add('hidden');
+                document.getElementById('adminTab').classList.remove('hidden');
+                renderAdminProductsTable();
+                renderAdminOrders();
+            }
+        };
+
+        window.setAdminSubTab = function(sub) {
+            const tabs = ['products', 'add', 'sale', 'orders'];
+            tabs.forEach(t => {
+                const el = document.getElementById('admin' + t.charAt(0).toUpperCase() + t.slice(1) + 'Content');
+                if (el) el.classList.add('hidden');
+            });
+
+            document.getElementById('subTabProd').className = 'pb-3 text-xs font-semibold text-gray-500 hover:text-gold-600';
+            document.getElementById('subTabAdd').className = 'pb-3 text-xs font-semibold text-gray-500 hover:text-gold-600';
+            document.getElementById('subTabSale').className = 'pb-3 text-xs font-semibold text-gray-500 hover:text-gold-600';
+            document.getElementById('subTabOrders').className = 'pb-3 text-xs font-semibold text-gray-500 hover:text-gold-600';
+
+            if (sub === 'products') {
+                document.getElementById('adminProdContent').classList.remove('hidden');
+                document.getElementById('subTabProd').className = 'pb-3 text-xs font-bold border-b-2 border-gold-500 text-gold-600';
+            } else if (sub === 'add') {
+                document.getElementById('adminAddContent').classList.remove('hidden');
+                document.getElementById('subTabAdd').className = 'pb-3 text-xs font-bold border-b-2 border-gold-500 text-gold-600';
+            } else if (sub === 'sale') {
+                document.getElementById('adminSaleContent').classList.remove('hidden');
+                document.getElementById('subTabSale').className = 'pb-3 text-xs font-bold border-b-2 border-gold-500 text-gold-600';
+            } else if (sub === 'orders') {
+                document.getElementById('adminOrdersContent').classList.remove('hidden');
+                document.getElementById('subTabOrders').className = 'pb-3 text-xs font-bold border-b-2 border-gold-500 text-gold-600';
+            }
+        };
+
+        window.setCategory = function(cat, event) {
+            window.state.activeCategory = cat;
+            document.querySelectorAll('.cat-pill').forEach(btn => {
+                btn.className = 'cat-pill bg-white text-gray-700 hover:bg-gold-50 px-4 py-1.5 rounded-full text-xs font-semibold border border-gray-200';
+            });
+            if (event && event.target) {
+                event.target.className = 'cat-pill active bg-gold-500 text-white px-4 py-1.5 rounded-full text-xs font-semibold shadow-xs';
+            }
+            renderStoreProducts();
+        };
+
+        window.filterProducts = function() {
+            window.state.searchQuery = document.getElementById('searchInput').value;
+            renderStoreProducts();
+        };
+
+        window.toggleCartDrawer = function() {
+            document.getElementById('cartDrawer').classList.toggle('hidden');
+        };
+
+        window.toggleModal = function(id) {
+            const modal = document.getElementById(id);
+            if (modal) modal.classList.toggle('hidden');
+        };
+
+        window.openCheckoutModal = function() {
+            if (window.state.cart.length === 0) {
+                showToast("Add items to your cart first!", "error");
+                return;
+            }
+            toggleCartDrawer();
+            toggleModal('checkoutModal');
+        };
+
+        window.handleUserLogin = function(e) {
+            e.preventDefault();
+            const email = document.getElementById('userLoginEmail').value;
+            document.getElementById('userBadge').classList.remove('hidden');
+            toggleModal('accountModal');
+            showToast(`Logged in as ${email}`, "success");
+        };
+
+        window.showToast = function(message, type = "info", duration = 3500) {
+            const container = document.getElementById('toastContainer');
+            if (!container) return;
+            
+            const toast = document.createElement('div');
+            
+            let bg = "bg-gray-900 text-white border-gold-500";
+            if (type === "success") bg = "bg-gradient-to-r from-yellow-700 to-amber-900 text-white border-gold-400";
+            if (type === "error") bg = "bg-red-700 text-white border-red-400";
+
+            toast.className = `p-3 px-4 rounded-xl shadow-2xl border text-xs font-semibold flex items-center space-x-2 pointer-events-auto transform transition-all duration-300 ${bg}`;
+            toast.innerHTML = `
+                <i class="fa-solid ${type === 'success' ? 'fa-circle-check' : type === 'error' ? 'fa-circle-exclamation' : 'fa-circle-info'} text-gold-400"></i>
+                <span>${message}</span>
+            `;
+
+            container.appendChild(toast);
+            setTimeout(() => {
+                toast.style.opacity = '0';
+                setTimeout(() => toast.remove(), 300);
+            }, duration);
+        };
+    </script>
+</body>
+</html>
