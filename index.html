@@ -10,7 +10,51 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<!-- Firebase Core SDKs -->
+<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
 
+<script>
+  // Firebase Configuration[cite: 9]
+  const firebaseConfig = {
+    apiKey: "AIzaSyB6IT6e4qIXPTgUXO6wxby5RyIMVTaVEDU",
+    authDomain: "goldseff.firebaseapp.com",
+    projectId: "goldseff",
+    storageBucket: "goldseff.firebasestorage.app",
+    messagingSenderId: "178776854760",
+    appId: "1:178776854760:web:d7a8bcfb495998886d395d",
+    measurementId: "G-FSEP2BSM6T"
+  };
+
+  // Initialize Firebase
+  if (!firebase.apps.length) {
+    firebase.initializeApp(firebaseConfig);
+  }
+  const db = firebase.firestore();
+
+  // REALTIME SYNCHRONIZATION LISTENER
+  db.collection("products").onSnapshot((snapshot) => {
+    let liveProducts = [];
+    snapshot.forEach((doc) => {
+      liveProducts.push({ id: doc.id, ...doc.data() });
+    });
+    console.log("Realtime Products Loaded:", liveProducts);
+    if (typeof renderProducts === "function") {
+      renderProducts(liveProducts);
+    }
+  });
+
+  // CLOUD SAVE FUNCTION
+  async function saveProductToCloud(productObj) {
+    try {
+      await db.collection("products").add(productObj);
+      alert("Product live upload ho chuki hai!");
+    } catch (err) {
+      console.error("Upload error:", err);
+      alert("Upload error: " + err.message);
+    }
+  }
+</script>
     <script>
         tailwind.config = {
             theme: {
