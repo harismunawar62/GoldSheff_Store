@@ -135,7 +135,7 @@
     <div id="topBanner" class="bg-gradient-to-r from-yellow-700 via-gold-500 to-yellow-700 text-white text-xs md:text-sm py-2 px-4 text-center font-medium shadow-sm flex items-center justify-between">
         <div class="flex-1 text-center flex items-center justify-center gap-2">
             <i class="fa-solid fa-truck-fast animate-bounce"></i>
-            <span><strong>FREE SHIPPING</strong> ON ALL ORDERS ABOVE <strong>PKR 1,500</strong> IN PAKISTAN!</span>
+            <span id="shippingAnnouncement"><strong>FREE SHIPPING</strong> ON ALL ORDERS ABOVE <strong id="shippingLimitText">PKR 1,500</strong> IN PAKISTAN!</span>
         </div>
         <button onclick="document.getElementById('topBanner').style.display='none'" class="text-white/80 hover:text-white text-xs px-2">
             <i class="fa-solid fa-xmark"></i>
@@ -1513,5 +1513,78 @@ const STORE_CONFIG = {
             }, duration);
         };
     </script>
+    <!-- PRODUCT DETAILS MODAL -->
+<div id="productDetailModal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl max-w-lg w-full max-h-[90vh] overflow-y-auto p-6 shadow-2xl relative">
+        <!-- Close Button -->
+        <button onclick="closeProductModal()" class="absolute top-4 right-4 w-8 h-8 bg-gray-100 hover:bg-gray-200 rounded-full flex items-center justify-center text-gray-600">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+
+        <!-- Product Image -->
+        <div class="w-full h-56 rounded-xl overflow-hidden mb-4 bg-gray-50 flex items-center justify-center">
+            <img id="modalProductImg" src="" alt="Product" class="h-full object-contain" />
+        </div>
+
+        <!-- Details & Tareef -->
+        <span id="modalProductCat" class="text-[10px] font-bold uppercase text-gold-600 bg-gold-50 px-2.5 py-1 rounded-full"></span>
+        <h3 id="modalProductTitle" class="text-xl font-bold text-gray-800 mt-2 mb-1"></h3>
+        <p id="modalProductPrice" class="text-lg font-bold text-gold-600 mb-4"></p>
+
+        <div class="mb-4 bg-amber-50/50 p-3.5 rounded-xl border border-amber-100">
+            <h4 class="text-xs font-bold text-gray-700 uppercase mb-1">
+                <i class="fa-solid fa-star text-gold-500 mr-1"></i> Product Details & Tareef
+            </h4>
+            <p id="modalProductDesc" class="text-xs text-gray-600 leading-relaxed"></p>
+        </div>
+
+        <!-- Quantity (+ / -) & Add to Cart -->
+        <div class="flex items-center gap-3 pt-2 border-t border-gray-100">
+            <div class="flex items-center border border-gray-200 rounded-lg overflow-hidden">
+                <button onclick="changeModalQty(-1)" class="px-3 py-1.5 bg-gray-50 hover:bg-gray-100 text-gray-600 font-bold text-sm">-</button>
+                <span id="modalQtyDisplay" class="px-4 py-1.5 text-sm font-bold text-gray-800">1</span>
+                <button onclick="changeModalQty(1)" class="px-3 py-1.5 bg-gray-50 hover:bg-gray-100 text-gray-600 font-bold text-sm">+</button>
+            </div>
+            <button id="modalAddToCartBtn" class="flex-1 btn-gold py-2.5 rounded-lg text-xs font-bold uppercase shadow-md">
+                <i class="fa-solid fa-bag-shopping mr-2"></i> Add to Cart
+            </button>
+        </div>
+    </div>
+</div>
+
+<script>
+let currentModalQty = 1;
+let selectedProductForModal = null;
+
+function openProductModal(product) {
+    selectedProductForModal = product;
+    currentModalQty = 1;
+
+    document.getElementById("modalProductImg").src = product.image || product.imgUrl;
+    document.getElementById("modalProductTitle").innerText = product.name || product.title;
+    document.getElementById("modalProductCat").innerText = product.category || "Nutraceutical";
+    document.getElementById("modalProductPrice").innerText = `PKR ${Number(product.price).toLocaleString()}`;
+    document.getElementById("modalProductDesc").innerText = product.description || "100% Original and Medicated Product for optimal health results.";
+    document.getElementById("modalQtyDisplay").innerText = currentModalQty;
+
+    document.getElementById("modalAddToCartBtn").onclick = function() {
+        addToCart(selectedProductForModal.id, currentModalQty);
+        closeProductModal();
+    };
+
+    document.getElementById("productDetailModal").classList.remove("hidden");
+}
+
+function closeProductModal() {
+    document.getElementById("productDetailModal").classList.add("hidden");
+}
+
+function changeModalQty(change) {
+    if (currentModalQty + change >= 1) {
+        currentModalQty += change;
+        document.getElementById("modalQtyDisplay").innerText = currentModalQty;
+    }
+}
+</script>
 </body>
 </html>
