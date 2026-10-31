@@ -310,6 +310,8 @@
                 </div>
 <!-- ADMIN CONTROLS: SHIPPING & PROMO CODE -->
 <div class="space-y-4 my-6">
+    <!-- ADMIN CONTROLS SECTION -->
+<div class="space-y-4 my-6">
     <!-- FREE SHIPPING LIMIT PANEL -->
     <div class="bg-white p-4 rounded-xl border border-gold-500/30 shadow-sm flex items-center justify-between">
         <div>
@@ -332,6 +334,26 @@
                 <p class="text-xs text-gray-500">Create & manage active promo codes for discounts</p>
             </div>
         </div>
+
+        <!-- Add Promo Form -->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-3 mb-4">
+            <input type="text" id="promoCodeInput" placeholder="Code (e.g. SAVE200)" class="px-3 py-2 text-xs border rounded-lg focus:outline-none focus:border-gold-500 uppercase font-bold" />
+            <input type="number" id="promoDiscountInput" placeholder="Discount Amount (PKR)" class="px-3 py-2 text-xs border rounded-lg focus:outline-none focus:border-gold-500 font-bold" />
+            <select id="promoTypeInput" class="px-3 py-2 text-xs border rounded-lg focus:outline-none focus:border-gold-500 bg-white font-bold text-gray-700">
+                <option value="flat">Flat Discount (PKR)</option>
+                <option value="percent">Percentage (%)</option>
+            </select>
+            <button onclick="addPromoCode()" class="btn-gold px-4 py-2 text-xs font-bold rounded-lg shadow-md">
+                + Add Code
+            </button>
+        </div>
+
+        <!-- Promo Codes List -->
+        <div id="promoCodesList" class="space-y-2 max-h-48 overflow-y-auto pt-2 border-t border-gray-100">
+            <!-- Dynamic Promo Cards will load here -->
+        </div>
+    </div>
+</div>
 
         <!-- Add Promo Form -->
         <div class="grid grid-cols-1 md:grid-cols-4 gap-3 mb-4">
