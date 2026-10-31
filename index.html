@@ -13,7 +13,13 @@
 <!-- Firebase Core SDKs -->
 <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
-
+<!-- EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+       (function(){
+          emailjs.init("imm6vhyuhEK9nbJ5p");
+       })();
+    </script>
 <script>
   // Firebase Configuration[cite: 9]
   const firebaseConfig = {
@@ -219,7 +225,7 @@
     </div>
 
     <!-- MAIN BODY CONTENT CONTAINER -->
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-grow w-full">
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-grow w-full grid grid-cols-2 gap-3">
 
         <!-- STORE FRONT TAB -->
         <section id="storeTab">
@@ -680,6 +686,23 @@
 
     <!-- FIREBASE & APPLICATION ENGINE -->
     <script type="module">
+        // ==========================================
+// STORE CONFIGURATION (Aap yahan se changes kar sakte hain)
+// ==========================================
+const STORE_CONFIG = {
+  // Free shipping ki limit (kitne PKR par delivery free hogi)
+  freeShippingThreshold: 1500, 
+
+  // Standard shipping fee (jab order limit se kam ho)
+  shippingFee: 200,            
+
+  // Promo Codes: "CODE": { discount: %, active: true/false }
+  promoCodes: {
+    "GOLDSHEFF10": { discount: 10, active: true },
+    "GOLDSHEFF15": { discount: 15, active: true },
+    "OFF20":       { discount: 20, active: false } // active: false se code band ho jayega
+  }
+};
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
         import { 
             getFirestore, collection, doc, setDoc, deleteDoc, onSnapshot 
@@ -1138,12 +1161,26 @@
                 try {
                     await setDoc(doc(db, "orders", orderId), orderData);
                 } catch (err) {
+                    
                     console.error("Firebase Order Save Error:", err);
                 }
             } else {
                 window.state.orders.unshift({ id: orderId, ...orderData });
                 saveState('goldsheff_orders', window.state.orders);
             }
+            // EmailJS Trigger
+    const emailParams = {
+        user_name: name,
+        user_email: email,
+        user_phone: phone,
+        user_address: address,
+        order_details: window.state.cart.map(item => `${item.name} x ${item.qty}`).join(', '),
+        total_price: window.state.cart.reduce((sum, item) => sum + (item.price * item.qty), 0)
+    };
+
+    emailjs.send("service_l2tv6ou", "template_y9iexcu", emailParams)
+        .then(() => console.log("Confirmation email sent successfully!"))
+        .catch((err) => console.error("Email send error:", err));
 
             window.state.cart = [];
             saveState('goldsheff_cart', window.state.cart);
