@@ -315,7 +315,46 @@
                     <button onclick="setAdminSubTab('sale')" id="subTabSale" class="pb-3 text-xs font-semibold text-gray-500 hover:text-gold-600"><i class="fa-solid fa-clock text-amber-500 mr-1"></i> Sale Timer Manager</button>
                     <button onclick="setAdminSubTab('orders')" id="subTabOrders" class="pb-3 text-xs font-semibold text-gray-500 hover:text-gold-600">Orders (<span id="adminOrderCount">0</span>)</button>
                 </div>
+<!-- ADMIN SHIPPING SETTING PANEL -->
+<div class="bg-white p-4 rounded-xl border border-gold-500/30 my-4 shadow-sm flex items-center justify-between">
+    <div>
+        <h4 class="font-bold text-gray-800 text-sm"><i class="fa-solid fa-truck-fast text-gold-600 mr-2"></i>Free Shipping Limit</h4>
+        <p class="text-xs text-gray-500">Change minimum order amount for free shipping</p>
+    </div>
+    <div class="flex items-center gap-2">
+        <input type="number" id="adminShippingInput" placeholder="1500" class="w-28 px-3 py-1.5 text-sm border rounded-lg focus:outline-none focus:border-gold-500 font-bold text-gray-700" />
+        <button onclick="saveShippingLimit()" class="btn-gold px-3.5 py-1.5 text-xs font-bold rounded-lg shadow-sm">
+            Save
+        </button>
+    </div>
+</div>
+                <!-- ADMIN PROMO CODE PANEL -->
+<div class="bg-white p-5 rounded-2xl border border-gold-500/30 my-6 shadow-sm">
+    <div class="flex items-center justify-between mb-4">
+        <div>
+            <h4 class="font-bold text-gray-800 text-sm"><i class="fa-solid fa-ticket text-gold-600 mr-2"></i>Promo Code Manager</h4>
+            <p class="text-xs text-gray-500">Create & manage active promo codes for discounts</p>
+        </div>
+    </div>
 
+    <!-- Add Promo Form -->
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-3 mb-4">
+        <input type="text" id="promoCodeInput" placeholder="Code (e.g. SAVE200)" class="px-3 py-2 text-xs border rounded-lg focus:outline-none focus:border-gold-500 uppercase font-bold" />
+        <input type="number" id="promoDiscountInput" placeholder="Discount Amount (PKR)" class="px-3 py-2 text-xs border rounded-lg focus:outline-none focus:border-gold-500 font-bold" />
+        <select id="promoTypeInput" class="px-3 py-2 text-xs border rounded-lg focus:outline-none focus:border-gold-500 bg-white font-bold text-gray-700">
+            <option value="flat">Flat Discount (PKR)</option>
+            <option value="percent">Percentage (%)</option>
+        </select>
+        <button onclick="addPromoCode()" class="btn-gold px-4 py-2 text-xs font-bold rounded-lg shadow-md">
+            + Add Code
+        </button>
+    </div>
+
+    <!-- Promo Codes List -->
+    <div id="promoCodesList" class="space-y-2 max-h-48 overflow-y-auto pt-2 border-t border-gray-100">
+        <!-- Dynamic Promo Cards will load here -->
+    </div>
+</div>
                 <!-- SUB TAB 1: PRODUCT LIST & CONTROLS -->
                 <div id="adminProdContent">
                     <div class="flex justify-between items-center mb-4">
